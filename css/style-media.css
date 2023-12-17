@@ -958,4 +958,101 @@
         position: absolute;
         top: 214px;
     }
+
+
+    .slider__slogan-wrapper {
+        padding-top: 10px;
+        padding-left: 8px;
+    }
+
+
+    .portfolio__slider-btn-wrapper {
+        top: 330px;
+    }
+
+    .portfolio__container {
+        min-height: 650px;
+    }
+
+    .portfolio__block {
+        margin: 0 -15px;
+    }
+
+    .portfolio__description-wrapper {
+        min-height: 65px;
+    }
+
+    .portfolio__description-name {
+        padding-left: 15px;
+        width: 180px;
+    }
+
+    .portfolio__description-name::before {
+        left: 15px;
+    }
+
+    .portfolio__slider-item:hover .portfolio__description-name  {
+        padding-top: 9px;
+        font-size: 20px;
+    }
+
+    .portfolio__slider-item:hover .portfolio__description-name::before {
+        content: '';
+        bottom: 6px;
+    }
+
+
+    .slogan {
+        padding-top: 120px;
+        padding-bottom: 120px;
+    }
+    
+    
+    .products__container {
+        height: 700px;
+    }
+
+    .products__img {
+        top: 10px;
+    }
+
+    .products__text-animation-horizont p:nth-child(2n) {
+        padding-top: 30px;
+    }
+
+
+    .clients {
+        padding-top: 120px;
+    }
+
+    .clients__slider-block {
+        padding-top: 35px;
+    }
+
+    .clients__slider-description-text {
+        height: 180px;
+    }
+
+
+    .contacts {
+        padding-top: 60px;
+    }
+
+
+    .news1 {
+        padding-top: 120px;
+    }
+
+
+    .footer  {
+        padding-top: 120px;
+    }
+
+    .footer__content-items {
+        padding-top: 120px;
+    }
+
+    .footer__menu-wrapper {
+        padding-top: 120px;
+    }
 }

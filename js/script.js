@@ -181,7 +181,7 @@ new Swiper('.portfolio__slider', {
             spaceBetween: 24,
         },
         920: {
-            slidesPerView: 1.4,
+            slidesPerView: 1.5,
             spaceBetween: 18,
         },
         820: {
@@ -189,11 +189,11 @@ new Swiper('.portfolio__slider', {
             spaceBetween: 16,
         },
         640: {
-            slidesPerView: 1.4,
+            slidesPerView: 1.3,
             spaceBetween: 14,
         },
-        390: {
-            slidesPerView: 1.1,
+        320: {
+            slidesPerView: 1.2,
             spaceBetween: 10,
         }
     },
@@ -224,6 +224,7 @@ new Swiper('.portfolio__slider', {
 
     effect: 'slide',
 
+    
     // stop slider portfolio
 
     on: {
@@ -285,7 +286,7 @@ new Swiper('.clients__slider', {
             slidesPerView: 2,
             spaceBetween: 80,
         },
-        390: {
+        320: {
             slidesPerView: 1.3,
             spaceBetween: 10,
         }
