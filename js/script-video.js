@@ -1,77 +1,156 @@
 // video
 
 const guysVideoElement = document.querySelector('.guys__video-block');
-const screenElement = document.querySelector('.portfolio');
+// const screenElement = document.querySelector('.portfolio');
+const portfolio = document.querySelector('.portfolio');
 const container = document.querySelector('.container');
+const guysBtn = document.querySelector('.guys__slider-btn');
+const arrow = guysBtn.querySelector('.arrow-right');
+const guysBorder = document.querySelector('.guys__content-border');
+
 
 const coordVideo = guysVideoElement.getBoundingClientRect();
-const coordScreen = screenElement.getBoundingClientRect();
+// const coordScreen = screenElement.getBoundingClientRect();
 const containerScreen = container.getBoundingClientRect();
+const coordGuysBtn = guysBtn.getBoundingClientRect();
+const coordArrow = arrow.getBoundingClientRect();
 
-// coordScreenWidth = coordScreen.width;
-// coordScreenHeight = coordScreen.height
+const windowWidth = window.innerWidth;
+const windowHeight = window.innerHeight;
 
-const windowWidth = document.documentElement.clientWidth;
-const windowHeight = document.documentElement.clientHeight;
+let widthVideoElem = coordVideo.width;
+let heightVideoElem = coordVideo.height;
+let widthBtn = coordGuysBtn.width;
+let heightBtn = coordGuysBtn.height;
+let arrowWidth = coordArrow.width;
+let arrowHeight = coordArrow.height;
 
-widthVideoElem = coordVideo.width;
-heightVideoElem = coordVideo.height;
 
-
-const videoBlock = function (target) {
+const videoBlockScroll = function (target) {
 
     let windowScrollTop = window.pageYOffset;
     // console.log('windowScrollTop: ', windowScrollTop);
+    const coordPortfolio = portfolio.getBoundingClientRect();
+    // console.log('coordPortfolio: ', coordPortfolio.top);
+    const coordVideo = guysVideoElement.getBoundingClientRect();
+    // console.log('coordVideo: ', coordVideo.top);
+
+
     let indexWidth = widthVideoElem + windowScrollTop;
     let indexHeight = heightVideoElem + windowScrollTop;
 
-    let indexWidthScreen = 0;
-    let indexHeightScreen = 0;
+    let indexWidthBtn = widthBtn + windowScrollTop;
+    let indexHeightBtn = heightBtn + windowScrollTop;
 
-    // console.log(indexWidth);
-    // console.log(coordScreen.top);
+    let indexArrowWidth = arrowWidth + windowScrollTop; 
+    let indexArrowHeight = arrowHeight + windowScrollTop; 
 
-    if (windowScrollTop > 10 && windowScrollTop < 1200 && indexWidth * 1.2 <= containerScreen.width) {
+
+    if (windowScrollTop > 10 && windowScrollTop < 1200 && indexWidth * 1.3 <= containerScreen.width - 30) {
         guysVideoElement.classList.add('video-fixed');
         guysVideoElement.classList.remove('video-relative');
-        screenElement.classList.remove('portfolio-top');
+        portfolio.classList.remove('portfolio-top');
 
-        guysVideoElement.style.width = indexWidth * 1.2 + 'px';
-        guysVideoElement.style.height = indexHeight / 1.1 + 'px';
+        guysVideoElement.style.width = (indexWidth * 1.3) + 'px';
+        if (indexHeight < windowHeight - 150) {
+            guysVideoElement.style.height = indexHeight + 'px';
+            // console.log('indexHeight: ', indexHeight);    
+        }
 
-        guysVideoElement.style.borderRadius = (300 - windowScrollTop / 1.8) + 'px';
 
-        indexWidthScreen = guysVideoElement.getBoundingClientRect().width;
-        indexHeightScreen = guysVideoElement.getBoundingClientRect().height;
+        if (windowScrollTop > 10 && windowScrollTop < 200) {
+            guysBorder.style.display = 'block';
+        } else if (windowScrollTop >= 200 && windowScrollTop < 1200) {
+            guysBorder.style.display = 'none';
+        }
+
+        if (guysVideoElement.style.borderRadius.slice(0, 2).replace(/[^\d]/g, '') > 30) {
+            guysVideoElement.style.borderRadius = (300 - (windowScrollTop / 1.2)) + 'px';
+        } else if (guysVideoElement.style.borderRadius.slice(0, 2).replace(/[^\d]/g, '') <= 30) {
+            guysVideoElement.style.borderRadius = '30px'
+        }
 
         
-    } else if (indexWidth > containerScreen.width - 200 && windowScrollTop <= 1600) {
+        guysBtn.style.width = (widthBtn + (indexWidthBtn * 0.05)) + 'px';
+        guysBtn.style.height = (heightBtn + (indexHeightBtn * 0.05)) + 'px';
+
+        arrow.style.width = (arrowWidth + (indexArrowWidth * 0.015)) + 'px';
+        arrow.style.height = (arrowHeight + (indexArrowHeight * 0.015)) + 'px';
+        arrow.style.borderRightWidth = (indexArrowWidth * 0.006) + 'px';
+        arrow.style.borderBottomWidth = (indexArrowWidth * 0.006) + 'px';
+        
+    }
+    
+    else if (indexWidth > containerScreen.width - 200 && coordPortfolio.top > windowHeight / 2) {
+        // console.log('windowHeight: ', windowHeight);
         guysVideoElement.classList.remove('video-fixed');
         guysVideoElement.classList.add('video-relative');
-        screenElement.classList.remove('portfolio-top');
+        portfolio.classList.remove('portfolio-top');
+        guysBorder.style.display = 'none';
 
-        guysVideoElement.style.width = 1363 + 'px';
-        guysVideoElement.style.height = 852 + 'px';
+        if (guysVideoElement.style.borderRadius.slice(0, 2).replace(/[^\d]/g, '') > 30) {
+            guysVideoElement.style.borderRadius = (300 - (windowScrollTop / 1.2)) + 'px';
+        } else if (guysVideoElement.style.borderRadius.slice(0, 2).replace(/[^\d]/g, '') <= 30) {
+            guysVideoElement.style.borderRadius = '30px'
+        }
 
-    } else if (windowScrollTop < 10) {
+        if (windowWidth > containerScreen.width) {
+            guysVideoElement.style.width = (containerScreen.width - 30) + 'px';
+            guysVideoElement.style.height = (windowHeight - 150) + 'px';
+        } else {
+            guysVideoElement.style.width = (windowWidth - 30) + 'px';
+            guysVideoElement.style.height = (windowHeight - 220) + 'px';
+        }
+
+        guysBtn.style.width = 46 + 'px';
+        guysBtn.style.height = 46 + 'px';
+
+        arrow.style.width = 13 + 'px';
+        arrow.style.height = 13 + 'px';
+
+        arrow.style.borderRightWidth = 3.6 + 'px';
+        arrow.style.borderBottomWidth = 3.6 + 'px';
+
+        // guysVideoElement.style.opacity = 1; 
+
+    }
+    
+    else if (windowScrollTop < 10) {
         guysVideoElement.classList.remove('video-fixed');
         guysVideoElement.classList.remove('video-relative');
-        screenElement.classList.remove('portfolio-top');
+        portfolio.classList.remove('portfolio-top');
+        guysBorder.style.display = 'block';
 
         guysVideoElement.style.width = widthVideoElem + 'px';
         guysVideoElement.style.height = heightVideoElem + 'px';
 
-    } else if (windowScrollTop > 1600) {
+        guysVideoElement.style.borderRadius = 300 + 'px'
+
+        guysBtn.style.width = widthBtn + 'px';
+        guysBtn.style.height = heightBtn + 'px';
+
+        arrow.style.width = arrowWidth + 'px';
+        arrow.style.height = arrowHeight + 'px';
+
+
+    } else if (coordPortfolio.top < windowHeight / 4) {
         guysVideoElement.classList.remove('video-fixed');
         guysVideoElement.classList.remove('video-relative');
-        screenElement.classList.add('portfolio-top');
 
-    }
+        // guysVideoElement.style.opacity = 0; 
+
+        portfolio.classList.add('portfolio-top');
+        portfolio.style.top = - windowHeight / 2 + 'px';
+        guysBorder.style.display = 'none';
+
+        guysVideoElement.style.borderRadius = 300 + 'px';
+        // console.log(windowScrollTop);
+    } 
 };
 
 // run function scrolling the page
 window.addEventListener('scroll', function() {
-    videoBlock (guysVideoElement);
+    videoBlockScroll(guysVideoElement);
 });
 
-videoBlock (guysVideoElement);
+videoBlockScroll (guysVideoElement);

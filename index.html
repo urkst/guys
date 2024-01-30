@@ -22,7 +22,7 @@
     <!-- Custom style -->
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/style-media.css">
+    <!-- <link rel="stylesheet" href="css/style-media.css"> -->
     <!-- Library scripts -->
     <script src="lib/js/swiper-bundle.min.js" defer></script>
     <script src="lib/js/just-validate.production.min.js" defer></script>
@@ -30,35 +30,48 @@
     <script src="lib/js/jquery-3.7.1.min.js" defer></script>
     <script src="lib/js/transition.js" defer></script>
     <!-- User scripts -->
+    <script src="js/script-slider.js" defer></script>
     <script src="js/script.js" defer></script>
-    <script src="js/script-cursor.js" defer></script>
+    <script src="js/script-portfolio.js" defer></script>
     <script src="js/script-video.js" defer></script>
     <script src="js/script-slogan.js" defer></script>
     <script src="js/script-products.js" defer></script>
+    <script src="js/script-clients.js" defer></script>
+    <script src="js/script-footer.js" defer></script>
 </head>
 <body>
-    <header class="header none1">
+    <header id="header" class="header none1">
         <h1 class="visually-hidden">Креативне агенство "Гайз"</h1>
         <div class="container">
             <div class="header__wrapper">
                 <div class="header__container">
-                    <a href="#!">    
+                    <a href="#!">
                         <svg class="header__logo image" xmlns="http://www.w3.org/2000/svg" width="72" height="26" viewBox="0 0 56 19" fill="none">
-                            <path d="M1.44809 17.9149C0.482895 17.219 0 16.2278 0 14.9428C0 14.0861 0.217392 13.4079 0.651582 12.9077C1.08577 12.4082 1.60846 12.0424 2.22025 11.8098C2.83144 11.5778 3.64399 11.3459 4.65789 11.1139C5.47816 10.9175 6.12974 10.7389 6.61264 10.5781C7.09494 10.4173 7.49706 10.1768 7.81899 9.85518C8.14092 9.53358 8.30129 9.10522 8.30129 8.5701C8.30129 7.80301 8.01559 7.21385 7.44479 6.80328C6.87339 6.39272 6.05728 6.1871 4.99527 6.1871C4.28726 6.1871 3.57153 6.3077 2.84748 6.5489C2.12343 6.7901 1.48789 7.09786 0.940844 7.47284L0.337373 6.02696C0.98064 5.5986 1.71657 5.25064 2.54574 4.98242C3.37433 4.71486 4.19875 4.58109 5.01902 4.58109C6.56334 4.58109 7.78988 4.93366 8.69925 5.6388C9.60802 6.34395 10.063 7.34829 10.063 8.65116C10.063 9.52567 9.84144 10.2222 9.39953 10.7396C8.95703 11.2576 8.42246 11.6325 7.79463 11.8639C7.1674 12.0958 6.34654 12.3285 5.33323 12.5598C4.51296 12.7384 3.86495 12.9123 3.39037 13.0817C2.91579 13.2517 2.52139 13.4877 2.20778 13.7915C1.89416 14.0953 1.73735 14.5058 1.73735 15.0232C1.73735 15.7731 2.05097 16.3484 2.67879 16.7504C3.30602 17.1518 4.15896 17.3528 5.23701 17.3528C6.1541 17.3528 7.01891 17.2012 7.83146 16.8974C8.64341 16.5943 9.35558 16.2193 9.96737 15.7731L10.5946 17.1386C9.90262 17.6922 9.09008 18.1337 8.15695 18.4639C7.22383 18.7947 6.25032 18.9595 5.23701 18.9595C3.67606 18.9595 2.41329 18.6115 1.44809 17.9156V17.9149Z" fill="#151515"/>
-                            <path d="M26.4865 4.68693V18.8245H24.7485V16.0295C24.2031 16.9795 23.4835 17.7052 22.589 18.2066C21.6945 18.7087 20.685 18.9595 19.5603 18.9595C18.299 18.9595 17.158 18.6552 16.1358 18.0459C15.1136 17.4366 14.3123 16.5859 13.7336 15.4924C13.1542 14.3995 12.8649 13.1539 12.8649 11.7567C12.8649 10.3596 13.1542 9.1139 13.7336 8.02105C14.3129 6.9282 15.1136 6.08144 16.1358 5.48143C17.158 4.88142 18.2997 4.58109 19.5603 4.58109C20.6504 4.58109 21.6342 4.81858 22.5123 5.29355C23.3898 5.76853 24.1094 6.46248 24.6717 7.37672V4.68892H26.4865V4.68693ZM22.2569 16.5799C23.0149 16.1228 23.6112 15.4739 24.0459 14.6311C24.4805 13.7889 24.6975 12.8304 24.6975 11.7554C24.6975 10.6804 24.4805 9.72184 24.0459 8.87971C23.6112 8.03759 23.0149 7.38796 22.2569 6.93084C21.4983 6.47373 20.651 6.2455 19.7137 6.2455C18.7765 6.2455 17.9034 6.47373 17.1454 6.93084C16.3868 7.38796 15.7911 8.03759 15.3565 8.87971C14.9218 9.72184 14.7048 10.6804 14.7048 11.7554C14.7048 12.8304 14.9218 13.7896 15.3565 14.6311C15.7911 15.4739 16.3868 16.1228 17.1454 16.5799C17.9034 17.0371 18.7595 17.2653 19.7137 17.2653C20.668 17.2653 21.4983 17.0371 22.2569 16.5799Z" fill="#151515"/>
-                            <path d="M29.5135 5.36443H31.397V16.1681L40.7071 5.36443H42.3784V18.9595H40.495V8.15583L31.2116 18.9595H29.5142V5.36443H29.5135ZM32.988 2.5215C32.2803 1.93562 31.918 1.10863 31.9003 0.0405426H33.253C33.2706 0.712311 33.5181 1.25112 33.996 1.65571C34.4732 2.06094 35.0921 2.26323 35.8526 2.26323C36.6132 2.26323 37.236 2.06094 37.7224 1.65571C38.2087 1.25112 38.4607 0.712311 38.4783 0.0405426H39.831C39.8134 1.10926 39.4465 1.93625 38.7303 2.5215C38.0142 3.10739 37.0545 3.40002 35.8526 3.40002C34.6508 3.40002 33.695 3.10739 32.988 2.5215Z" fill="#151515"/>
-                            <path d="M55.2202 12.679C55.74 13.2493 55.9999 13.9446 55.9999 14.7635C55.9999 15.5824 55.7312 16.3132 55.1944 16.9552C54.6577 17.5965 53.929 18.0912 53.0084 18.4385C52.0878 18.7858 51.0734 18.9595 49.9659 18.9595C48.9943 18.9595 48.0397 18.8128 47.1027 18.5188C46.1651 18.2247 45.347 17.7932 44.6486 17.2223L45.2621 15.8061C45.8756 16.2869 46.5917 16.6612 47.4098 16.9282C48.2278 17.1953 49.0547 17.3288 49.8897 17.3288C51.1338 17.3288 52.1526 17.0841 52.9448 16.5941C53.7371 16.104 54.1335 15.441 54.1335 14.603C54.1335 13.8544 53.8094 13.2717 53.1619 12.8526C52.5138 12.4343 51.6278 12.2245 50.5033 12.2245H48.202V10.8346H50.4007C51.4063 10.8346 52.2161 10.634 52.8297 10.2334C53.4432 9.83279 53.7503 9.29407 53.7503 8.61656C53.7503 7.868 53.4054 7.28061 52.7145 6.85305C52.0242 6.4255 51.125 6.21172 50.0175 6.21172C48.5683 6.21172 47.1367 6.5952 45.7221 7.36086L45.2105 5.89072C46.8126 5.01785 48.4745 4.58109 50.1962 4.58109C51.2187 4.58109 52.1431 4.73698 52.97 5.04877C53.7962 5.36055 54.4437 5.80192 54.9132 6.37156C55.382 6.94185 55.6161 7.60095 55.6161 8.3495C55.6161 9.09805 55.3813 9.69465 54.9132 10.2472C54.4444 10.7997 53.8094 11.2095 53.0084 11.4766C53.963 11.7081 54.6998 12.1094 55.2196 12.679H55.2202Z" fill="#151515"/>
+                            <path class="animated fadeInUpBig2" d="M1.44809 17.9149C0.482895 17.219 0 16.2278 0 14.9428C0 14.0861 0.217392 13.4079 0.651582 12.9077C1.08577 12.4082 1.60846 12.0424 2.22025 11.8098C2.83144 11.5778 3.64399 11.3459 4.65789 11.1139C5.47816 10.9175 6.12974 10.7389 6.61264 10.5781C7.09494 10.4173 7.49706 10.1768 7.81899 9.85518C8.14092 9.53358 8.30129 9.10522 8.30129 8.5701C8.30129 7.80301 8.01559 7.21385 7.44479 6.80328C6.87339 6.39272 6.05728 6.1871 4.99527 6.1871C4.28726 6.1871 3.57153 6.3077 2.84748 6.5489C2.12343 6.7901 1.48789 7.09786 0.940844 7.47284L0.337373 6.02696C0.98064 5.5986 1.71657 5.25064 2.54574 4.98242C3.37433 4.71486 4.19875 4.58109 5.01902 4.58109C6.56334 4.58109 7.78988 4.93366 8.69925 5.6388C9.60802 6.34395 10.063 7.34829 10.063 8.65116C10.063 9.52567 9.84144 10.2222 9.39953 10.7396C8.95703 11.2576 8.42246 11.6325 7.79463 11.8639C7.1674 12.0958 6.34654 12.3285 5.33323 12.5598C4.51296 12.7384 3.86495 12.9123 3.39037 13.0817C2.91579 13.2517 2.52139 13.4877 2.20778 13.7915C1.89416 14.0953 1.73735 14.5058 1.73735 15.0232C1.73735 15.7731 2.05097 16.3484 2.67879 16.7504C3.30602 17.1518 4.15896 17.3528 5.23701 17.3528C6.1541 17.3528 7.01891 17.2012 7.83146 16.8974C8.64341 16.5943 9.35558 16.2193 9.96737 15.7731L10.5946 17.1386C9.90262 17.6922 9.09008 18.1337 8.15695 18.4639C7.22383 18.7947 6.25032 18.9595 5.23701 18.9595C3.67606 18.9595 2.41329 18.6115 1.44809 17.9156V17.9149Z" fill="#151515"/>
+                            <path class="animated fadeInUpBig3" d="M26.4865 4.68693V18.8245H24.7485V16.0295C24.2031 16.9795 23.4835 17.7052 22.589 18.2066C21.6945 18.7087 20.685 18.9595 19.5603 18.9595C18.299 18.9595 17.158 18.6552 16.1358 18.0459C15.1136 17.4366 14.3123 16.5859 13.7336 15.4924C13.1542 14.3995 12.8649 13.1539 12.8649 11.7567C12.8649 10.3596 13.1542 9.1139 13.7336 8.02105C14.3129 6.9282 15.1136 6.08144 16.1358 5.48143C17.158 4.88142 18.2997 4.58109 19.5603 4.58109C20.6504 4.58109 21.6342 4.81858 22.5123 5.29355C23.3898 5.76853 24.1094 6.46248 24.6717 7.37672V4.68892H26.4865V4.68693ZM22.2569 16.5799C23.0149 16.1228 23.6112 15.4739 24.0459 14.6311C24.4805 13.7889 24.6975 12.8304 24.6975 11.7554C24.6975 10.6804 24.4805 9.72184 24.0459 8.87971C23.6112 8.03759 23.0149 7.38796 22.2569 6.93084C21.4983 6.47373 20.651 6.2455 19.7137 6.2455C18.7765 6.2455 17.9034 6.47373 17.1454 6.93084C16.3868 7.38796 15.7911 8.03759 15.3565 8.87971C14.9218 9.72184 14.7048 10.6804 14.7048 11.7554C14.7048 12.8304 14.9218 13.7896 15.3565 14.6311C15.7911 15.4739 16.3868 16.1228 17.1454 16.5799C17.9034 17.0371 18.7595 17.2653 19.7137 17.2653C20.668 17.2653 21.4983 17.0371 22.2569 16.5799Z" fill="#151515"/>
+                            <path class="animated fadeInUpBig4" d="M29.5135 5.36443H31.397V16.1681L40.7071 5.36443H42.3784V18.9595H40.495V8.15583L31.2116 18.9595H29.5142V5.36443H29.5135ZM32.988 2.5215C32.2803 1.93562 31.918 1.10863 31.9003 0.0405426H33.253C33.2706 0.712311 33.5181 1.25112 33.996 1.65571C34.4732 2.06094 35.0921 2.26323 35.8526 2.26323C36.6132 2.26323 37.236 2.06094 37.7224 1.65571C38.2087 1.25112 38.4607 0.712311 38.4783 0.0405426H39.831C39.8134 1.10926 39.4465 1.93625 38.7303 2.5215C38.0142 3.10739 37.0545 3.40002 35.8526 3.40002C34.6508 3.40002 33.695 3.10739 32.988 2.5215Z" fill="#151515"/>
+                            <path class="animated fadeInUpBig5" d="M55.2202 12.679C55.74 13.2493 55.9999 13.9446 55.9999 14.7635C55.9999 15.5824 55.7312 16.3132 55.1944 16.9552C54.6577 17.5965 53.929 18.0912 53.0084 18.4385C52.0878 18.7858 51.0734 18.9595 49.9659 18.9595C48.9943 18.9595 48.0397 18.8128 47.1027 18.5188C46.1651 18.2247 45.347 17.7932 44.6486 17.2223L45.2621 15.8061C45.8756 16.2869 46.5917 16.6612 47.4098 16.9282C48.2278 17.1953 49.0547 17.3288 49.8897 17.3288C51.1338 17.3288 52.1526 17.0841 52.9448 16.5941C53.7371 16.104 54.1335 15.441 54.1335 14.603C54.1335 13.8544 53.8094 13.2717 53.1619 12.8526C52.5138 12.4343 51.6278 12.2245 50.5033 12.2245H48.202V10.8346H50.4007C51.4063 10.8346 52.2161 10.634 52.8297 10.2334C53.4432 9.83279 53.7503 9.29407 53.7503 8.61656C53.7503 7.868 53.4054 7.28061 52.7145 6.85305C52.0242 6.4255 51.125 6.21172 50.0175 6.21172C48.5683 6.21172 47.1367 6.5952 45.7221 7.36086L45.2105 5.89072C46.8126 5.01785 48.4745 4.58109 50.1962 4.58109C51.2187 4.58109 52.1431 4.73698 52.97 5.04877C53.7962 5.36055 54.4437 5.80192 54.9132 6.37156C55.382 6.94185 55.6161 7.60095 55.6161 8.3495C55.6161 9.09805 55.3813 9.69465 54.9132 10.2472C54.4444 10.7997 53.8094 11.2095 53.0084 11.4766C53.963 11.7081 54.6998 12.1094 55.2196 12.679H55.2202Z" fill="#151515"/>
                         </svg>
                     </a>
         
                     <div class="header__nav">
                         <nav class="nav">
                             <ul class="nav__list">
-                                <li><a href="#!">Головна</a></li>
-                                <li><a href="#!">Послуги</a></li>
-                                <li><a href="#!">Портфоліо</a></li>
-                                <li><a href="#!">Новини</a></li>
-                                <li><a href="#!">Контакти</a></li>
+                                <li class="nav__link">
+                                    <a href="#header">Головна</a>
+                                </li>
+                                <li class="nav__link2">
+                                    <a href="#products">Послуги</a>
+                                </li>
+                                <li class="nav__link3">
+                                    <a href="#portfolio">Портфоліо</a>
+                                </li>
+                                <li class="nav__link4">
+                                    <a href="#news">Новини</a>
+                                </li>
+                                <li class="nav__link5">
+                                    <a href="#contacts">Контакти</a>
+                                </li>
                             </ul>
                         </nav>
                     </div>
@@ -69,7 +82,7 @@
                     <button type="submit" class="header__nav__submit">Працювати з нами</button>
         
                     <div class="header__nav-btn">
-                        <button class="nav-icon-btn">
+                        <a class="nav-icon-btn">
                             <div class="nav-circle-wrapper">
                                 <div class="nav-circle-item"></div>
                                 <div class="nav-circle-item"></div>
@@ -78,14 +91,14 @@
                             <div class="nav-icon">
                                 Меню
                             </div>
-                        </button>
+                        </a>
                     </div>
         
                     <button class="header__nav-close"></button>
                 
                     <div class="header__language">
                         <div class="dropdown">
-                            <button class="dropdown__button">Ua</button>
+                            <a class="dropdown__button">Ua</a>
                             <ul class="dropdown__list">
                                 <li class="dropdown__list-item" data-value="Ua">
                                     <a class="dropdown__list-link" href="./index.html">Ua</a>
@@ -106,36 +119,63 @@
     </header>
 
     <main>
-        <section class="guys none1">
+        <section id="guys" class="guys none1">
             <div class="container guys__container">
                 <div class="guys__content">
 
                     <div class="guys__letter-wrapper guys__letter-wrapper-top">
-                        <img class="guys__letter guys__letter-g wow fadeInUpBig" src="./img/guys/g.svg" alt="g">
-                        <img class="guys__letter guys__letter-u wow fadeInUpBig" data-wow-delay="0.1s" src="./img/guys/u.svg" alt="u">
 
-                        <img class="guys__letter-hov guys__letter-g-hov" src="./img/guys/g_hov.svg" alt="g">
-                        <img class="guys__letter-hov guys__letter-u-hov" src="./img/guys/u_hov.svg" alt="u">
+                        <div class="guys__letter-wrapper-item-1 wow fadeInUpBig">
+                            <div class="guys__letter-change">
+                                <img class="guys__letter guys__letter-g" src="./img/guys/g.svg" alt="g">
+                            </div>
+                            <div class="guys__letter-change">
+                                <img class="guys__letter-hov guys__letter-g-hov" src="./img/guys/g_hov.svg" alt="g">
+                            </div>
+                        </div>
+
+                        <div class="guys__letter-wrapper-item-2 wow fadeInUpBig" data-wow-delay="0.1s">
+                            <div class="guys__letter-change">
+                                <img class="guys__letter guys__letter-u" src="./img/guys/u.svg" alt="u">
+                            </div>
+                            <div class="guys__letter-change">
+                                <img class="guys__letter-hov guys__letter-u-hov" src="./img/guys/u_hov.svg" alt="u">
+                            </div>    
+                        </div>
 
                     </div>
 
-                    <!-- <div class="guys__letter guys__letter-g wow fadeInUpBig" style="background-image: url('./img/guys/g.svg');"></div>
-                    <div class="guys__letter guys__letter-g wow fadeInUpBig" style="background-image: url('./img/guys/u.svg');"></div> -->
-
-                    <div id="min-video" class="guys__video-block guys__video-block-center">
+                    <div title="Pause" class="guys__video-block guys__video-block-center">
                         <video class="video" loop="loop" autoplay="" muted="" poster="./img/guys/guys_img_1.png">
                             <source src="./video/guys.mp4" type="video/mp4" />
                         </video>
+
+                        <div class="guys__arrow">
+                            <button class="guys__slider-btn guys__slider-btn-next">
+                                <i class="arrow-right"></i>
+                            </button>
+                        </div>
                     </div>
 
                     <div class="guys__letter-wrapper guys__letter-wrapper-bottom">
 
-                        <img class="guys__letter guys__letter-y wow fadeInUpBig" data-wow-delay="0.2s" src="./img/guys/y.svg" alt="y">
-                        <img class="guys__letter guys__letter-s wow fadeInUpBig" data-wow-delay="0.3s" src="./img/guys/s.svg" alt="s">
+                        <div class="guys__letter-wrapper-item-3 wow fadeInUpBig" data-wow-delay="0.2s">
+                            <div class="guys__letter-change">
+                                <img class="guys__letter guys__letter-y" src="./img/guys/y.svg" alt="y">
+                            </div>
+                            <div class="guys__letter-change">
+                                <img class="guys__letter-hov guys__letter-y-hov" src="./img/guys/y_hov.svg" alt="y">
+                            </div>
+                        </div>
 
-                        <img class="guys__letter-hov guys__letter-y-hov" src="./img/guys/y_hov.svg" alt="y">
-                        <img class="guys__letter-hov guys__letter-s" src="./img/guys/s_hov.svg" alt="s">
-
+                        <div class="guys__letter-wrapper-item-4 wow fadeInUpBig" data-wow-delay="0.3s">
+                            <div class="guys__letter-change">
+                                <img class="guys__letter guys__letter-s" src="./img/guys/s.svg" alt="s">
+                            </div>
+                            <div class="guys__letter-change">
+                                <img class="guys__letter-hov guys__letter-s-hov" src="./img/guys/s_hov.svg" alt="s">
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -143,26 +183,11 @@
             </div>
         </section>
 
-        <section id="max-video" class="slider none1">
-            <div class="container slider__container">
-                <div class="slider__slogan-wrapper">
-                    <div class="slider__slogan-text">Ми подружимо
-                        ваш бізнес із клієнтами</div>
-                    <div class="slider__slogan-link">
-                        <a href="#!">Працювати з нами</a>
-                    </div>
-                </div>
-                <div class="slider__home">
-                    <div class="slider__home-wrapper">
-                            <div class="slider__home-img">
-                            </div>
-                    </div>
-                </div>
-            </div>
-
+        <section class="slider none1">
+                <div class="slider__home"></div>
         </section>
 
-        <section class="portfolio none1">
+        <section id="portfolio" class="portfolio none1">
             <div class="portfolio__container">
                 <div class="container">
                     <h2 class="portfolio__title">Останні роботи</h2>
@@ -263,42 +288,50 @@
 
         <section class="slogan none1">
             <div class="container">
-                <div class="slogan__text">
-                    <div class="slogan__text-first_line wow fadeInUpBig" data-wow-offset="10">
-                        <div class="first_line-1">It's</div>
-                        <div class="first_line-2">simple</div> 
-                        <div></div>   
-                        <div class="first_line-3">—</div>
-                        <div></div>
-                        <div class="first_line-4">we</div>    
-                        <div class="first_line-5">make</div> 
+                <div class="slogan__text-wrapper">
+                    <div class="slogan__text-item _animat-item">
+                        <div class="slogan__text-first_line _animat-show">
+                            <div class="first_line-1">It's</div>
+                            <div class="first_line-2">simple</div> 
+                            <div></div>   
+                            <div class="first_line-3">—</div>
+                            <div></div>
+                            <div class="first_line-4">we</div>    
+                            <div class="first_line-5">make</div>     
+                        </div>
                     </div>
-                    <div class="slogan__text-second_line wow fadeInUpBig" data-wow-offset="10">
-                        <div class="second_line-1">your</div> 
-                        <div class="second_line-2">product,</div> 
-                        <div></div>   
-                        <div class="second_line-3">product</div> 
+                    <div class="slogan__text-item _animat-item">
+                        <div class="slogan__text-second_line _animat-show">
+                            <div class="second_line-1">your</div> 
+                            <div class="second_line-2">product,</div> 
+                            <div></div>   
+                            <div class="second_line-3">product</div> 
+                        </div>
                     </div>
-                    <div class="slogan__text-third_line wow fadeInUpBig" data-wow-offset="10">
-                        <div class="third_line-1">or</div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div class="third_line-2">service</div> 
-                        <div class="third_line-3">more</div> 
+                    <div class="slogan__text-item _animat-item">
+                        <div class="slogan__text-third_line _animat-show">
+                            <div class="third_line-1">or</div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div class="third_line-2">service</div> 
+                            <div class="third_line-3">more</div> 
+                        </div>
                     </div>
-                    <div class="slogan__text-fourth_line wow fadeInUpBig" data-wow-offset="10">
-                        <div class="fourth_line-1">interesting</div> 
-                        <div class="fourth_line-2">for</div> 
-                        <div class="fourth_line-3">the</div> 
-                        <div class="fourth_line-4">client.</div>    
+                    <div class="slogan__text-item _animat-item">
+                        <div class="slogan__text-fourth_line _animat-show">
+                            <div class="fourth_line-1">interesting</div> 
+                            <div class="fourth_line-2">for</div> 
+                            <div class="fourth_line-3">the</div> 
+                            <div class="fourth_line-4">client.</div>    
+                        </div>
                     </div>
                 </div>
             </div>
 
         </section>
 
-        <section class="products none1">
+        <section id="products" class="products none1">
             <div class="products__container">
                 <div class="container">
                     <div class="products__wrapper">
@@ -312,35 +345,30 @@
                             </div>
                             <div class="products__text-animation">
                                 <div class="products__text-first_block">
-                                    Стратегія
-                                    <br>
-                                    Креатив
-                                    <br>
-                                    Відео&nbsp;прод.
-                                    <br>
-                                    Брендинг
+                                    <p class="products-reveal">Стратегія</p>
+                                    <p class="products-reveal2">Креатив</p>
+                                    <p class="products-reveal3">Відео&nbsp;прод.</p>
+                                    <p class="products-reveal4">Брендинг</p>
                                 </div>
                                 <div class="products__text-second_block">
                                     Sunny Bonnell and Ashleigh Hansberger love contributing to news, articles, and stories about entrepreneurship, business 
                                 </div>
                                 <div class="products__text-third_block">
-                                    SMM
-                                    <br>
-                                    Вебсайт 
-                                    <br>
-                                    Заснування
+                                    <p>SMM</p>
+                                    <p>Вебсайт</p>
+                                    <p>Заснування</p>
                                 </div>         
                             </div>
                         </div>
                     </div>
                     <div class="products__animation">
-                        <div class="products__description-bg-right wow fadeInRightBig" data-wow-delay="4s" data-wow-offset="200"></div>
+                        <div class="products__description-bg-right"></div>
 
-                        <div class="products__img wow fadeInRightBig" data-wow-delay="2s" data-wow-offset="200">
+                        <div class="products__img">
                             <img src="./img/products/products.png" alt="products.png">
                         </div>
                         
-                        <div class="products__animation-btn-block wow fadeInRightBig" data-wow-delay="2s" data-wow-offset="10">
+                        <div class="products__animation-btn-block">
                             <div class="products__animation-btn-wrapper">
                                 <div class="products__animation-description-wrapper">
                                     <a href="#!" class="products__description-name">Фірмовий стиль BetCore</a>
@@ -370,10 +398,11 @@
                     <h2 class="clients__title">Наші клієнти</h2>
                     <div class="clients__slider-block">
                         <div class="clients__slider swiper">
-                            <div class="clients__slider-wrapper swiper-wrapper">
+
+                            <!-- <div class="clients__slider-wrapper swiper-wrapper">
 
                                 <div class="swiper-slide">
-                                    <div class="clients__slider-item wow fadeIn" data-wow-delay=".5s" data-wow-duration=".5s">
+                                    <div class="clients__slider-item wow fadeIn" data-wow-delay=".3s" data-wow-duration=".5s">
                                         <div class="clients__slider-item-img">
                                             <img src="./img/clients/clients_img-1.jpg" alt="clients_img-1">
                                         </div>
@@ -387,7 +416,7 @@
                                 </div>  
                                 
                                 <div class="swiper-slide">
-                                    <div class="clients__slider-item wow fadeIn" data-wow-delay="1s" data-wow-duration=".5s">
+                                    <div class="clients__slider-item wow fadeIn" data-wow-delay=".6s" data-wow-duration=".5s">
                                         <div class="clients__slider-item-img">
                                             <img src="./img/clients/clients_img-2.jpg" alt="clients_img-2">
                                         </div>
@@ -400,7 +429,7 @@
                                     </div>
                                 </div>    
                                 <div class="swiper-slide">
-                                    <div class="clients__slider-item wow fadeIn" data-wow-delay="1.5s" data-wow-duration=".5s">
+                                    <div class="clients__slider-item wow fadeIn" data-wow-delay=".9s" data-wow-duration=".5s">
                                         <div class="clients__slider-item-img">
                                             <img src="./img/clients/clients_img-3.jpg" alt="clients_img-3">
                                         </div>
@@ -413,7 +442,7 @@
                                     </div>
                                 </div>    
                                 <div class="swiper-slide">
-                                    <div class="clients__slider-item wow fadeIn" data-wow-delay="2s" data-wow-duration=".5s">
+                                    <div class="clients__slider-item wow fadeIn" data-wow-delay="1.2s" data-wow-duration=".5s">
                                         <div class="clients__slider-item-img">
                                             <img src="./img/clients/clients_img-4.jpg" alt="clients_img-4">
                                         </div>
@@ -503,7 +532,143 @@
                                         </div>
                                     </div>
                                 </div>    
+                            </div> -->
+
+                            <div class="clients__slider-wrapper swiper-wrapper _animat-client">
+
+                                <div class="swiper-slide">
+                                    <div class="clients__slider-item client-item-1">
+                                        <div class="clients__slider-item-img">
+                                            <img src="./img/clients/clients_img-1.jpg" alt="clients_img-1">
+                                        </div>
+                                        <div class="clients__slider-item-description">
+                                            <h3 class="clients__slider-description-name">TvBet</h3>
+                                            <div class="clients__slider-description-text">
+                                                Motto® Founders Sunny Bonnell and Ashleigh Hansberger are bestselling authors, keynote speakers, and global thought leaders. 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>  
+                                
+                                <div class="swiper-slide">
+                                    <div class="clients__slider-item client-item-2">
+                                        <div class="clients__slider-item-img">
+                                            <img src="./img/clients/clients_img-2.jpg" alt="clients_img-2">
+                                        </div>
+                                        <div class="clients__slider-item-description">
+                                            <h3 class="clients__slider-description-name">TvBet</h3>
+                                            <div class="clients__slider-description-text">
+                                                Motto® Founders Sunny Bonnell and Ashleigh Hansberger are bestselling authors, keynote speakers, and global thought leaders. 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>    
+                                <div class="swiper-slide">
+                                    <div class="clients__slider-item client-item-3">
+                                        <div class="clients__slider-item-img">
+                                            <img src="./img/clients/clients_img-3.jpg" alt="clients_img-3">
+                                        </div>
+                                        <div class="clients__slider-item-description">
+                                            <h3 class="clients__slider-description-name">TvBet</h3>
+                                            <div class="clients__slider-description-text">
+                                                Motto® Founders Sunny Bonnell and Ashleigh Hansberger are bestselling authors, keynote speakers, and global thought leaders. 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>    
+                                <div class="swiper-slide">
+                                    <div class="clients__slider-item client-item-4">
+                                        <div class="clients__slider-item-img">
+                                            <img src="./img/clients/clients_img-4.jpg" alt="clients_img-4">
+                                        </div>
+                                        <div class="clients__slider-item-description">
+                                            <h3 class="clients__slider-description-name">TvBet</h3>
+                                            <div class="clients__slider-description-text">
+                                                Motto® Founders Sunny Bonnell and Ashleigh Hansberger are bestselling authors, keynote speakers, and global thought leaders. 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>    
+                                <div class="swiper-slide">
+                                    <div class="clients__slider-item client-item-5">
+                                        <div class="clients__slider-item-img">
+                                            <img src="./img/clients/clients_img-5.jpg" alt="clients_img-5">
+                                        </div>
+                                        <div class="clients__slider-item-description">
+                                            <h3 class="clients__slider-description-name">TvBet</h3>
+                                            <div class="clients__slider-description-text">
+                                                Motto® Founders Sunny Bonnell and Ashleigh Hansberger are bestselling authors, keynote speakers, and global thought leaders. 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>    
+                                <div class="swiper-slide">
+                                    <div class="clients__slider-item client-item-6">
+                                        <div class="clients__slider-item-img">
+                                            <img src="./img/clients/clients_img-6.jpg" alt="clients_img-6">
+                                        </div>
+                                        <div class="clients__slider-item-description">
+                                            <h3 class="clients__slider-description-name">TvBet</h3>
+                                            <div class="clients__slider-description-text">
+                                                Motto® Founders Sunny Bonnell and Ashleigh Hansberger are bestselling authors, keynote speakers, and global thought leaders. 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>    
+                                <div class="swiper-slide">
+                                    <div class="clients__slider-item client-item-7">
+                                        <div class="clients__slider-item-img">
+                                            <img src="./img/clients/clients_img-7.jpg" alt="clients_img-7">
+                                        </div>
+                                        <div class="clients__slider-item-description">
+                                            <h3 class="clients__slider-description-name">TvBet</h3>
+                                            <div class="clients__slider-description-text">
+                                                Motto® Founders Sunny Bonnell and Ashleigh Hansberger are bestselling authors, keynote speakers, and global thought leaders. 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>    
+                                <div class="swiper-slide">
+                                    <div class="clients__slider-item client-item-8">
+                                        <div class="clients__slider-item-img">
+                                            <img src="./img/clients/clients_img-8.jpg" alt="clients_img-8">
+                                        </div>
+                                        <div class="clients__slider-item-description">
+                                            <h3 class="clients__slider-description-name">TvBet</h3>
+                                            <div class="clients__slider-description-text">
+                                                Motto® Founders Sunny Bonnell and Ashleigh Hansberger are bestselling authors, keynote speakers, and global thought leaders. 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>    
+                                <div class="swiper-slide">
+                                    <div class="clients__slider-item client-item-9">
+                                        <div class="clients__slider-item-img">
+                                            <img src="./img/clients/clients_img-9.jpg" alt="clients_img-9">
+                                        </div>
+                                        <div class="clients__slider-item-description">
+                                            <h3 class="clients__slider-description-name">TvBet</h3>
+                                            <div class="clients__slider-description-text">
+                                                Motto® Founders Sunny Bonnell and Ashleigh Hansberger are bestselling authors, keynote speakers, and global thought leaders. 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>    
+                                <div class="swiper-slide">
+                                    <div class="clients__slider-item client-item-10">
+                                        <div class="clients__slider-item-img">
+                                            <img src="./img/clients/clients_img-10.jpg" alt="clients_img-10">
+                                        </div>
+                                        <div class="clients__slider-item-description">
+                                            <h3 class="clients__slider-description-name">TvBet</h3>
+                                            <div class="clients__slider-description-text">
+                                                Motto® Founders Sunny Bonnell and Ashleigh Hansberger are bestselling authors, keynote speakers, and global thought leaders. 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>    
                             </div>
+
                         </div>
                         <div class="clients__slider-btn-wrapper">
                             <button class="clients__slider-btn clients__slider-btn-prev">
@@ -518,11 +683,11 @@
             </div>
         </section>
 
-        <section class="contacts none1">
+        <section id="contacts" class="contacts none1">
             <div class="container">
                 <div class="contacts__container">
                     <div class="contacts__content">
-                        <h2 class="contacts__title">Work with us</h2>
+                        <h2 class="contacts__title">Працювати з нами</h2>
     
                         <p class="contacts__subtitle">Ми чекаємо на ваші виклики,<br>
                             проекти та задачі!</p>
@@ -567,7 +732,7 @@
             </div>
         </section>
 
-        <!-- <section class="news none1">
+        <section id="news" class="news none1">
             <div class="container">
                 <div class="news__container">
                     <div class="news__content">
@@ -575,151 +740,25 @@
 
                         <div class="news__description-wrapper">
 
-                            <div class="news__description">
-                                <img src="./img/news/news-img_1.jpg" alt="news-img_1">
+                            <a href="#!" class="news__description ">
+                                <div class="news__img poligon_news-close0" style="background-image: url('./img/news/news-img_4.jpg');">
+                                </div>
                                 <div class="news__text">
-                                    <h3>BetCore brand identity</h3>
-                                </div>
-                            </div>
-                            <div class="news__description">
-                                <img src="./img/news/news-img_2.jpg" alt="news-img_2">
-                                <div class="news__text">
-                                    <h3>BetCore brand identity</h3>
-                                </div>
-                            </div>
-                            <div class="news__description">
-                                <img src="./img/news/news-img_3.jpg" alt="news-img_3">
-                                <div class="news__text">
-                                    <h3>BetCore brand identity</h3>
-                                </div>
-                            </div>
-                            <div class="news__description">
-                                <img src="./img/news/news-img_4.jpg" alt="news-img_4">
-                                <div class="news__text">
-                                    <h3>BetCore brand identity</h3>
-                                </div>
-                            </div>
-                            <div class="news__description">
-                                <img src="./img/news/news-img_5.jpg" alt="news-img_5">
-                                <div class="news__text">
-                                    <h3>BetCore brand identity</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section> -->
-
-        <section class="news1 none1">
-            <div class="container">
-                <div class="news__container1">
-                    <div id="news" class="news__content1">
-                        <h2 class="news__title1">Новини/<span>Статті</span></h2>
-
-                        <div class="news__description-wrapper1">
-
-                            <a href="#!" class="news__description1">
-                                <div class="news__img1" style="background-image: url('./img/news/news-img_4.jpg');">
-                                    <!-- <img src="./img/news/news-img_4.jpg" alt="news-img_4"> -->
-                                </div>
-                                <div class="news__text1">
                                     <h3>BetCore brand identity</h3>
                                 </div>
                             </a>
-                            <a href="#!" class="news__description1">
-                                <div class="news__img1" style="background-image: url('./img/news/news-img_5.jpg');">
-                                    <!-- <img src="./img/news/news-img_5.jpg" alt="news-img_5"> -->
+
+                            <a href="#!" class="news__description">
+                                <div class="news__img poligon_news-close1" style="background-image: url('./img/news/news-img_5.jpg');">
                                 </div>
-                                <div class="news__text1">
+                                <div class="news__text">
                                     <h3>BetCore brand identity</h3>
                                 </div>
-                            </a>
-                        </div>
-
-                        <!-- <div class="news__button-wrapper">
-                            <button сlass="news__button-wrapper-btn">Більше новин</button>
-                        </div> -->
-
-                        <div class="news__btn-wrapper-open">
-                            <a href="#!" data-ripple="once" class="news__animation-btn news__animation-btn-open">Більше новин
-                                <i class="news__btn-open"></i>
-                                <!-- <span class="ripple"></span> -->
-                            </a>
-                        </div>
-
-                        <div class="news__wrapper-list">
-
-                            <div class="news__description-wrapper1">
-
-                                <a href="#!" class="news__description1">
-                                    <div class="news__img1" style="background-image: url('./img/news/news-img_1.jpg');">
-                                        <!-- <img src="./img/news/news-img_1.jpg" alt="news-img_1"> -->
-                                    </div>
-                                    <div class="news__text1">
-                                        <h3>BetCore brand identity</h3>
-                                    </div>
-                                </a>
-                                <a href="#!" class="news__description1">
-                                    <div class="news__img1" style="background-image: url('./img/news/news-img_2.jpg');">
-                                        <!-- <img src="./img/news/news-img_2.jpg" alt="news-img_2"> -->
-                                    </div>
-                                    <div class="news__text1">
-                                        <h3>BetCore brand identity</h3>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div class="news__description-wrapper1">
-
-                                <a href="#!" class="news__description1">
-                                    <div class="news__img1" style="background-image: url('./img/news/news-img_3.jpg');">
-                                        <!-- <img src="./img/news/news-img_3.jpg" alt="news-img_3"> -->
-                                    </div>
-                                    <div class="news__text1">
-                                        <h3>BetCore brand identity</h3>
-                                    </div>
-                                </a>
-                                <a href="#!" class="news__description1">
-                                    <div class="news__img1" style="background-image: url('./img/news/news-img_4.jpg');">
-                                        <!-- <img src="./img/news/news-img_4.jpg" alt="news-img_4"> -->
-                                    </div>
-                                    <div class="news__text1">
-                                        <h3>BetCore brand identity</h3>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div class="news__description-wrapper1">
-
-                                <a href="#!" class="news__description1">
-                                    <div class="news__img1" style="background-image: url('./img/news/news-img_5.jpg');">
-                                        <!-- <img src="./img/news/news-img_5.jpg" alt="news-img_5"> -->
-                                    </div>
-                                    <div class="news__text1">
-                                        <h3>BetCore brand identity</h3>
-                                    </div>
-                                </a>
-                                <a href="#!" class="news__description1">
-                                    <div class="news__img1" style="background-image: url('./img/news/news-img_1.jpg');">
-                                        <!-- <img src="./img/news/news-img_1.jpg" alt="news-img_1"> -->
-                                    </div>
-                                    <div class="news__text1">
-                                        <h3>BetCore brand identity</h3>
-                                    </div>
-                                </a>
-                            </div>
-
-                        </div>
-
-                        <div class="news__btn-wrapper-close">
-                            <a href="#news" data-ripple="once" class="news__animation-btn news__animation-btn-close">Закрити
-                                <i class="news__btn-close"></i>
-                                <!-- <span class="ripple"></span> -->
                             </a>
                         </div>
 
                     </div>
+                    
                 </div>
             </div>
         </section>
@@ -749,11 +788,11 @@
     
                         <div class="footer__menu-wrapper">
                             <ul class="footer__menu">
-                                <li><a href="#!">Головна</a></li>
-                                <li><a href="#!">Послуги</a></li>
-                                <li><a href="#!">Портфоліо</a></li>
-                                <li><a href="#!">Новини</a></li>
-                                <li><a href="#!">Контакти</a></li>
+                                <li><a href="#header">Головна</a></li>
+                                <li><a href="#products">Послуги</a></li>
+                                <li><a href="#portfolio">Портфоліо</a></li>
+                                <li><a href="#news">Новини</a></li>
+                                <li><a href="#contacts">Контакти</a></li>
                             </ul>
     
                             <div class="footer__social-wrapper">
@@ -812,8 +851,8 @@
 
     <div class="popup__thx">
         <div class="popup__thx-body">
-            <h3>Спасибо&nbsp;за&nbsp;заявку!</h3>
-            <p>Мы вам перезвоним в&nbsp;течении 10&nbsp;минут.</p>
+            <h3>Дякую&nbsp;за&nbsp;заявку!</h3>
+            <p>Ми вам передзвонимо&nbsp;протягом10&nbsp;хвилин.</p>
             <p class="popup__thx-text">Ваша заявка № 100.</p>
         </div>
     </div>
@@ -823,11 +862,9 @@
         <div id="aura"></div>
     </div>  
 
-    <!-- <script src="./js/gsap.min.js"></script> -->
     <script src="lib/js/gsap.min.js"></script>
-    <!-- <script src="./js/wow.min.js"></script> -->
     <script src="lib/js/wow.min.js"></script>
-    <script>new WOW().init();</script>
+    <!-- <script>new WOW().init();</script> -->
 
 
 </body>

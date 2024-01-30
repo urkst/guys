@@ -1,13 +1,13 @@
 
-const animatItems = document.querySelectorAll('._animat-item');
+const animatClientsItems = document.querySelectorAll('._animat-client');
 
-if (animatItems.length > 0) {
+if (animatClientsItems.length > 0) {
 
     window.addEventListener('scroll', animatOnScroll);
 
     function animatOnScroll() {
-        for (let i = 0; i < animatItems.length; i++){
-            const animatItem = animatItems[i];
+        for (let i = 0; i < animatClientsItems.length; i++){
+            const animatItem = animatClientsItems[i];
             const animatItemHeight = animatItem.offsetHeight;
             const animatItemOffset = offset(animatItem).top;
             const animatStart = 4;
@@ -21,12 +21,12 @@ if (animatItems.length > 0) {
             if ((pageYOffset > animatItemOffset - animatItemPoint) && pageYOffset < (animatItemOffset + animatItemHeight)) {
 
                 setTimeout(() => {
-                    animatItem.classList.add('_active-animat');
+                    animatItem.classList.add('_active-animat-client');
                 }, 100);
                 
             } else {
-                if (!animatItem.classList.contains('_animat-no-hide')) {
-                    animatItem.classList.remove('_active-animat');
+                if (!animatItem.classList.contains('_animat-no-hide-client')) {
+                    animatItem.classList.remove('_active-animat-client');
                 }
             }
         }
