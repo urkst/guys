@@ -15,11 +15,15 @@ const contacts = document.querySelector('.contacts');
 const news = document.querySelector('.news');
 const footer = document.querySelector('.footer');
 
+const navLinkNews = document.querySelector('.nav__link4');
+const navLinkContacts = document.querySelector('.nav__link5');
+
 const coordProductsStart = products.getBoundingClientRect();
 
 let isAnimationRunning = false;
 let flagTop = true; 
 let flagScrollText = true;
+// let flagClick = false;
 
 let indexScrollTop = 0;
 
@@ -59,6 +63,7 @@ let scrollTop = 0;
 //         slogan.classList.remove('slogan-relative');
 //     }
 // }
+
 
 function scrollSect(top) {
     if (top === 0) {
@@ -153,11 +158,12 @@ function scrollSectEnd() {
     footer.style.top = indexScrollTop + "px"
 }
 
-
-if (coordProductsStart.top < 0) {
+function clickHeaderLink() {
 
     isAnimationRunning = true;
     flagScrollText = false;
+
+    scrollSectEnd();
 
     animate1(productsTextFirstBlock);
     animate3(productsTextThirdBlock);
@@ -165,6 +171,34 @@ if (coordProductsStart.top < 0) {
     animate8(productsBgRigh);
     animate7(productsImg);
     animate9(productsBtn); 
+
+}
+
+
+if (coordProductsStart.top < 0) {
+
+    clickHeaderLink();
+
+    // console.log('coordProductsStart.top: ', coordProductsStart.top);
+
+
+    // isAnimationRunning = true;
+    // flagScrollText = false;
+
+    // animate1(productsTextFirstBlock);
+    // animate3(productsTextThirdBlock);
+    // animate4(productsTextSecondBlock);
+    // animate8(productsBgRigh);
+    // animate7(productsImg);
+    // animate9(productsBtn); 
+} else if (coordProductsStart.top >= 0) {
+    
+    navLinkNews.addEventListener('click', () => clickHeaderLink());
+
+    navLinkContacts.addEventListener('click', () => clickHeaderLink());
+
+        // console.log('coordProductsStart.top: ', coordProductsStart.top);
+
 }
 
 
@@ -230,6 +264,7 @@ function animate9(productsBtn) {
         "opacity 0 1 0.6s linear 0.6s"
     ]);
 }
+
 
 document.addEventListener('scroll', function () {
 

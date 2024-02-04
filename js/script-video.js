@@ -25,6 +25,8 @@ let heightBtn = coordGuysBtn.height;
 let arrowWidth = coordArrow.width;
 let arrowHeight = coordArrow.height;
 
+// let playActive = true;
+
 
 const videoBlockScroll = function (target) {
 
@@ -76,6 +78,13 @@ const videoBlockScroll = function (target) {
 
         arrow.style.width = (arrowWidth + (indexArrowWidth * 0.015)) + 'px';
         arrow.style.height = (arrowHeight + (indexArrowHeight * 0.015)) + 'px';
+
+        // if (playActive) {
+        //     arrow.style.borderToptWidth = (indexArrowWidth * 0.006) + 'px';
+        // } else {
+        //     arrow.style.borderRightWidth = (indexArrowWidth * 0.006) + 'px';
+        // }
+
         arrow.style.borderRightWidth = (indexArrowWidth * 0.006) + 'px';
         arrow.style.borderBottomWidth = (indexArrowWidth * 0.006) + 'px';
         
@@ -107,6 +116,12 @@ const videoBlockScroll = function (target) {
 
         arrow.style.width = 13 + 'px';
         arrow.style.height = 13 + 'px';
+
+        // if (playActive) {
+        //     arrow.style.borderTopWidth = 3.6 + 'px';
+        // } else {
+        //     arrow.style.borderRightWidth = 3.6 + 'px';
+        // }
 
         arrow.style.borderRightWidth = 3.6 + 'px';
         arrow.style.borderBottomWidth = 3.6 + 'px';
@@ -153,4 +168,29 @@ window.addEventListener('scroll', function() {
     videoBlockScroll(guysVideoElement);
 });
 
-videoBlockScroll (guysVideoElement);
+videoBlockScroll(guysVideoElement);
+
+
+
+// const videoBlock = document.querySelector('.guys__video-block');
+const video = document.querySelector('.video');
+// const arrowPause = document.querySelector('.arrow-right');
+
+// videoBlock.addEventListener('click', ()=>{
+guysVideoElement.addEventListener('click', ()=>{
+    if (video.paused) {
+        playActive = true;
+        video.play();
+        guysVideoElement.setAttribute("title", "Pause");
+        // arrowPause.classList.add('arrow-right-pause');
+        // arrowPause.classList.remove('arrow-right');
+    }
+    else {
+        playActive = false;
+        video.pause();
+        guysVideoElement.setAttribute("title", "Play");
+
+        // arrowPause.classList.remove('arrow-right-pause');
+        // arrowPause.classList.add('arrow-right');
+    }
+});

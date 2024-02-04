@@ -339,6 +339,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const headerNavSlogan = document.querySelector('.header__nav-slogan');
     const headerNavSubmit = document.querySelector('.header__nav__submit');
 
+    const productsText = document.querySelector('.products__text-animation');
+
     headerNavBtn.addEventListener('click', () => {
         headerContainer.classList.add('header__container-mobile');
         headerNavSubmit.style.display = 'none';
@@ -372,6 +374,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 headerLogo.forEach(function(logo) {
                     logo.style.fill = '#151515';
                 });
+
+                if (item.classList.contains('nav__link4') || item.classList.contains('nav__link5')) {
+                    productsText.style.top = '0vh';
+                }
+
                 // start scroll
                 document.body.classList.remove('no-scroll');
                 // scrollController.enabledScroll();
@@ -429,22 +436,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // video
 
-    const videoBlock = document.querySelector('.guys__video-block');
-    const video = document.querySelector('.video');
-    // const arrowPause = document.querySelector('.arrow-right');
+    // const videoBlock = document.querySelector('.guys__video-block');
+    // const video = document.querySelector('.video');
+    // // const arrowPause = document.querySelector('.arrow-right');
 
-    videoBlock.addEventListener('click', ()=>{
-        if (video.paused) {
-            video.play();
-            guysVideoElement.setAttribute("title", "Pause");
-            // arrowPause.classList.toggle('arrow-right-pause');
-        }
-        else {
-            video.pause();
-            guysVideoElement.setAttribute("title", "Play");
-            // arrowPause.classList.toggle('arrow-right-pause');
-        }
-    });
+    // videoBlock.addEventListener('click', ()=>{
+    //     if (video.paused) {
+    //         video.play();
+    //         guysVideoElement.setAttribute("title", "Pause");
+    //         // arrowPause.classList.toggle('arrow-right-pause');
+    //     }
+    //     else {
+    //         video.pause();
+    //         guysVideoElement.setAttribute("title", "Play");
+    //         // arrowPause.classList.toggle('arrow-right-pause');
+    //     }
+    // });
     
 
 
