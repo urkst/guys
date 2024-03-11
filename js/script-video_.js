@@ -1,32 +1,5 @@
 // video
 
-// function scrollVideo() {
-
-//     gsap.registerPlugin(ScrollTrigger);
-
-//     let guysHeight = $('.guys').height();
-
-//     gsap.to('.guys__video-block', {
-//         scrollTrigger: {
-//             trigger: '.guys',
-//             start: 'top top',
-//             // end: () => '+=' + gsapTrack,
-//             pin: true,
-//             scrub: true,
-//             markers: true,
-//         },
-//         scale: 2,
-//         y: guysHeight + 'px',
-//         // y: '-1200',
-//     });
-    
-// }
-
-// scrollVideo();
-
-
-
-
 const guysVideoElement = document.querySelector('.guys__video-block');
 // const screenElement = document.querySelector('.portfolio');
 const portfolio = document.querySelector('.portfolio');
@@ -58,7 +31,7 @@ let arrowHeight = coordArrow.height;
 const videoBlockScroll = function (target) {
 
     let windowScrollTop = window.pageYOffset;
-    // console.log('windowScrollTop: ', windowScrollTop);
+    console.log('windowScrollTop: ', windowScrollTop);
     const coordPortfolio = portfolio.getBoundingClientRect();
     // console.log('coordPortfolio: ', coordPortfolio.top);
     const coordVideo = guysVideoElement.getBoundingClientRect();
@@ -90,7 +63,7 @@ const videoBlockScroll = function (target) {
         if (windowScrollTop > 10 && windowScrollTop < 200) {
             guysBorder.style.display = 'block';
         } else if (windowScrollTop >= 200 && windowScrollTop < 1200) {
-            // guysBorder.style.display = 'none';
+            guysBorder.style.display = 'none';
         }
 
         if (guysVideoElement.style.borderRadius.slice(0, 3).replace(/[^\d]/g, '') > 35 && guysVideoElement.style.borderRadius.slice(0, 3).replace(/[^\d]/g, '') <= 300) {
@@ -129,7 +102,7 @@ const videoBlockScroll = function (target) {
         guysVideoElement.classList.remove('video-fixed');
         guysVideoElement.classList.add('video-relative');
         portfolio.classList.remove('portfolio-top');
-        // guysBorder.style.display = 'none';
+        guysBorder.style.display = 'none';
 
         if (guysVideoElement.style.borderRadius.slice(0, 2).replace(/[^\d]/g, '') > 30) {
             guysVideoElement.style.borderRadius = (300 - (windowScrollTop / 1.2)) + 'px';
@@ -168,7 +141,7 @@ const videoBlockScroll = function (target) {
         guysVideoElement.classList.remove('video-fixed');
         guysVideoElement.classList.remove('video-relative');
         portfolio.classList.remove('portfolio-top');
-        // guysBorder.style.display = 'block';
+        guysBorder.style.display = 'block';
 
         guysVideoElement.style.width = widthVideoElem + 'px';
         guysVideoElement.style.height = heightVideoElem + 'px';
@@ -182,23 +155,19 @@ const videoBlockScroll = function (target) {
         arrow.style.height = arrowHeight + 'px';
 
 
-    }
+    } else if (coordPortfolio.top < windowHeight / 4) {
+        guysVideoElement.classList.remove('video-fixed');
+        guysVideoElement.classList.remove('video-relative');
 
-    // else if (coordPortfolio.top < windowHeight / 4) {
-    //     guysVideoElement.classList.remove('video-fixed');
-    //     guysVideoElement.classList.remove('video-relative');
+        // guysVideoElement.style.opacity = 0; 
 
-    //     // guysVideoElement.style.opacity = 0; 
+        portfolio.classList.add('portfolio-top');
+        portfolio.style.top = - windowHeight / 2 + 'px';
+        guysBorder.style.display = 'none';
 
-    //     portfolio.classList.add('portfolio-top');
-    //     portfolio.style.top = - windowHeight / 2 + 'px';
-    //     guysBorder.style.display = 'none';
-
-    //     guysVideoElement.style.borderRadius = 300 + 'px';
-    //     // console.log(windowScrollTop);
-    // } 
-    
-    
+        guysVideoElement.style.borderRadius = 300 + 'px';
+        // console.log(windowScrollTop);
+    } 
 };
 
 // run function scrolling the page

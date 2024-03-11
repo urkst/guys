@@ -26,6 +26,14 @@ document.addEventListener('DOMContentLoaded', function () {
         dropDownBtn.addEventListener('click', function () {
             dropDownList.classList.toggle('dropdown__list--visible');
             // this.classList.add('dropdown__button--active');
+
+            dropDownListItems.forEach(function (listItem) {
+                // console.log('listItem: ', listItem.innerHTML);
+                const dropdownListLink = listItem.querySelector('.dropdown__list-link');
+                if (dropdownListLink.innerHTML === dropDownBtn.innerHTML) {
+                    listItem.style.display = 'none';
+                }
+            }); 
         });
 
         // selection list item
@@ -456,5 +464,3 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 });
-
-

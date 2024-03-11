@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
         autoHeight: true,
 
         autoplay: {
-            delay: 3000,
+            delay: 3500,
         },
         speed: 1000,
 
