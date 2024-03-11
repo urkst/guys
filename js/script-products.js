@@ -70,6 +70,9 @@ $(function () {
     const productsImg = document.querySelectorAll('.products__img');
     const productsBtn = document.querySelectorAll('.products__animation-btn-block');
 
+    const productsDescriptionBtn = document.querySelectorAll('.products__animation-description-wrapper');
+    const productsBtnWrp = document.querySelectorAll('.products__btn-wrapper');
+
     
     const coordProducts = products.getBoundingClientRect();
 
@@ -91,7 +94,21 @@ $(function () {
     function animateBtnOpen(productsBtn) {
         transition.begin(productsBtn, [
             "transform translate(0,0) translate(-58vw,0) 0.1s ease 0.1s",
+            // "opacity 0 1 0.5s linear 0.5s"
+        ]);
+    }
+
+    function animateBtnDescOpen(productsDescriptionBtn) {
+        transition.begin(productsDescriptionBtn, [
+            // "transform translate(0,0) translate(-58vw,0) 0.1s ease 0.1s",
             "opacity 0 1 0.5s linear 0.5s"
+        ]);
+    }
+
+    function animateBtnWrapOpen(productsBtnWrp) {
+        transition.begin(productsBtnWrp, [
+            // "transform translate(0,0) translate(-58vw,0) 0.1s ease 0.1s",
+            "opacity 0 1 0.7s linear 0.7s"
         ]);
     }
 
@@ -164,6 +181,8 @@ $(function () {
                     animateImgOpen(productsImg[i]);
                     animateBtnOpen(productsBtn[i]);
                     animateBgOpen(productsBgRigh[i]);
+                    animateBtnDescOpen(productsDescriptionBtn[i]);
+                    animateBtnWrapOpen(productsBtnWrp[i])
                 }
                 // else {
                 //     animateImgClose(productsImg[i]);
