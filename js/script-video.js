@@ -78,7 +78,7 @@ const videoBlockScroll = function (target) {
     if (windowScrollTop > 10 && windowScrollTop < 1200 && indexWidth * 1.3 <= containerScreen.width - 30) {
         guysVideoElement.classList.add('video-fixed');
         guysVideoElement.classList.remove('video-relative');
-        portfolio.classList.remove('portfolio-top');
+        // portfolio.classList.remove('portfolio-top');
 
         guysVideoElement.style.width = (indexWidth * 1.3) + 'px';
         if (indexHeight < windowHeight - 150) {
@@ -90,7 +90,7 @@ const videoBlockScroll = function (target) {
         if (windowScrollTop > 10 && windowScrollTop < 200) {
             guysBorder.style.display = 'block';
         } else if (windowScrollTop >= 200 && windowScrollTop < 1200) {
-            // guysBorder.style.display = 'none';
+            guysBorder.style.display = 'none';
         }
 
         if (guysVideoElement.style.borderRadius.slice(0, 3).replace(/[^\d]/g, '') > 35 && guysVideoElement.style.borderRadius.slice(0, 3).replace(/[^\d]/g, '') <= 300) {
@@ -128,7 +128,7 @@ const videoBlockScroll = function (target) {
         // console.log('windowHeight: ', windowHeight);
         guysVideoElement.classList.remove('video-fixed');
         guysVideoElement.classList.add('video-relative');
-        portfolio.classList.remove('portfolio-top');
+        // portfolio.classList.remove('portfolio-top');
         // guysBorder.style.display = 'none';
 
         if (guysVideoElement.style.borderRadius.slice(0, 2).replace(/[^\d]/g, '') > 30) {
@@ -167,7 +167,7 @@ const videoBlockScroll = function (target) {
     else if (windowScrollTop < 10) {
         guysVideoElement.classList.remove('video-fixed');
         guysVideoElement.classList.remove('video-relative');
-        portfolio.classList.remove('portfolio-top');
+        // portfolio.classList.remove('portfolio-top');
         // guysBorder.style.display = 'block';
 
         guysVideoElement.style.width = widthVideoElem + 'px';

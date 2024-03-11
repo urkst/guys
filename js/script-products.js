@@ -50,7 +50,7 @@ $(function () {
                 end: () => '+=' + gsapTrack,
                 pin: true,
                 scrub: true,
-                // markers: true,
+                markers: true,
             },
             y: '-=' + scrollSliderTransform + 'px',
             // y: '-1200',
