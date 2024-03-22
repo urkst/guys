@@ -3,8 +3,8 @@
 new WOW().init();
 
 document.addEventListener('DOMContentLoaded', function () {
-    
     // header__language
+
     // polyfill for method forEach for NodeList
     if (window.NodeList && !NodeList.prototype.forEach) {
         NodeList.prototype.forEach = function (callback, thisArg) {
@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // dropdown language bar
     document.querySelectorAll('.dropdown').forEach(function (dropDownWrapper) {
 
         const dropDownBtn = dropDownWrapper.querySelector('.dropdown__button');
@@ -66,77 +65,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
     });
 
-    // stop scroll
-    const scrollController = {
-        scrollPosition: 0,
-        disabledScroll() {
-            scrollController.scrollPosition = window.scrollY;
-            document.body.style.cssText = `
-            overflow: hidden;
-            position: fixed;
-            top: -${scrollController.scrollPosition}px;
-            left: 0;
-            height: 100vh;
-            width: 100vw;
-            padding-right: ${window.innerWidth - document.body.offsetWidth}px
-        `;
-            document.documentElement.style.scrollBehavior = 'unset';
-        },
-        enabledScroll() {
-            document.body.style.cssText = '';
-            window.scroll({ top: scrollController.scrollPosition })
-            document.documentElement.style.scrollBehavior = '';
-        },
-    }
 
-
-    // section menu
+    // menu 2 screen
 
     const navbar = document.querySelector('.header__wrapper');
-    const headerContainer = document.querySelector('.header__container');
-
-    const headerLogo = document.querySelectorAll('.header__logo > path');
-
-    // const headerNavWrap = document.querySelector('.header__nav');
     const headerNav = document.querySelector('.header__nav');
-
-    const headerNavList = document.querySelector('.nav__list');
-    const headerNavListItems = document.querySelectorAll('.nav__list > li > a');
-
-    // const headerNavSlogan = document.querySelector('.header__nav-slogan');
-    // const headerNavSubmit = document.querySelector('.header__nav__submit');
     const headerSlogan = document.querySelector('.header__nav-slogan');
     const headerSubmit = document.querySelector('.header__nav__submit');
-
-    // const headerNavBtn = document.querySelector('.header__nav-btn');
     const headerBtn = document.querySelector('.header__nav-btn');
-    const navIconBtn = document.querySelector('.nav-icon-btn');
-    // const iconBtn = document.querySelector('.nav-icon-btn');
-    const navCircleItem = document.querySelectorAll('.nav-circle-item');
-
-    const headerNavClose = document.querySelector('.header__nav-close');
-
-    const headerLanguage = document.querySelector('.header__language');
-    const dropdownButton = document.querySelector('.dropdown__button');
-    const dropdownLink = document.querySelectorAll('.dropdown__list-link');
-
-    // const productsText = document.querySelector('.products__text-animation');
-    const productsTextBlock = document.querySelectorAll('.products__text-block');
-    const productsTextSecondBlock = document.querySelectorAll('.products__text-second_block');
-    const productsImg = document.querySelectorAll('.products__img');
-    const productsBtn = document.querySelectorAll('.products__animation-btn-block');
-    const productsBgRigh = document.querySelectorAll('.products__description-bg-right');
-
-    const portfolio = document.querySelector('.portfolio');
-    const products = document.querySelector('.products');
-    const footer = document.querySelector('.footer');
 
     const height = Math.max( document.body.scrollHeight, document.body.offsetHeight, 
         document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight);
     // console.log(height);
 
-
-    // menu 2 screen
     const menuScreen = function () {
         let windowScrollTop = window.pageYOffset;
         // console.log('windowScrollTop: ', windowScrollTop);
@@ -165,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         }
         // else if (windowScrollTop > 1300) {
-        else if (coordPortfolioTop < 250 && !headerContainer.classList.contains('header__container-mobile')) {
+        else if (coordPortfolioTop < 250) {
             navbar.classList.add('scrolled');
             
             headerNav.style.display = 'none';
@@ -177,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function () {
             setTimeout(() => {
                 headerSubmit.style.display = 'none';
                 headerSlogan.style.display = 'none';
-            }, 600);
+            }, 1000);
             // console.log('windowScrollTop: ', windowScrollTop);
         } else if (windowScrollTop <= 690) {
             navbar.classList.remove('scrolled');
@@ -193,7 +134,25 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    window.addEventListener('scroll', function() {
+        menuScreen(navbar);
+    });
+
+    menuScreen(navbar);
+
+
     // color menu 2 
+    
+    const portfolio = document.querySelector('.portfolio');
+    const products = document.querySelector('.products');
+    const footer = document.querySelector('.footer');
+
+    const headerLogo = document.querySelectorAll('.header__logo > path');
+    const iconBtn = document.querySelector('.nav-icon-btn');
+    const navCircleItem = document.querySelectorAll('.nav-circle-item');
+    const dropdownButton = document.querySelector('.dropdown__button');
+    const dropdownLink = document.querySelectorAll('.dropdown__list-link');
+    
     const menuColor = function (target) {
         const coordPortfolio = portfolio.getBoundingClientRect();
         const coordProducts = products.getBoundingClientRect();
@@ -205,7 +164,7 @@ document.addEventListener('DOMContentLoaded', function () {
             headerLogo.forEach(function(logo) {
                 logo.style.fill = '#eeeeee';
             });
-            navIconBtn.classList.add('nav-icon-btn-white');
+            iconBtn.classList.add('nav-icon-btn-white');
             navCircleItem.forEach(function(item) {
                 item.classList.add('nav-circle-item-white');
             });
@@ -214,17 +173,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 link.classList.add('dropdown__link-active');
             });
 
-        }
-        else if (headerContainer.classList.contains('header__container-mobile')) {
-            headerLogo.forEach(function(logo) {
-                logo.style.fill = '#eeeeee';
-            });
-        }
-        else {
+        } else {
             headerLogo.forEach(function(logo) {
                 logo.style.fill = '#151515';
             });
-            navIconBtn.classList.remove('nav-icon-btn-white');
+            iconBtn.classList.remove('nav-icon-btn-white');
             navCircleItem.forEach(function(item) {
                 item.classList.remove('nav-circle-item-white');
             });
@@ -237,111 +190,48 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // run function scrolling the page
     window.addEventListener('scroll', function() {
-        menuScreen(navbar);
         menuColor(portfolio);
-    });
 
-    menuScreen(navbar);
+        // const clients_ = clients.getBoundingClientRect().top;
+        // console.log('clients_: ', clients_);
+    });
+    
     menuColor(portfolio);
 
 
-    // menu navigation
-    headerBtn.addEventListener('click', () => {
-        headerContainer.classList.add('header__container-mobile');
-        
-        headerSubmit.style.display = 'none';
-        headerSlogan.style.display = 'none';
-        headerNav.style.display = 'block';
+    // stop scroll
 
-        navIconBtn.style.display = 'none';
-        headerLanguage.style.display = 'block';
-        headerNavClose.style.display = 'block';
+    const scrollController = {
+        scrollPosition: 0,
+        disabledScroll() {
+            scrollController.scrollPosition = window.scrollY;
+            document.body.style.cssText = `
+            overflow: hidden;
+            position: fixed;
+            top: -${scrollController.scrollPosition}px;
+            left: 0;
+            height: 100vh;
+            width: 100vw;
+            padding-right: ${window.innerWidth - document.body.offsetWidth}px
+        `;
+            document.documentElement.style.scrollBehavior = 'unset';
+        },
+        enabledScroll() {
+            document.body.style.cssText = '';
+            window.scroll({ top: scrollController.scrollPosition })
+            document.documentElement.style.scrollBehavior = '';
+        },
+    }
 
-        headerNavList.classList.add('black-bg');
-        headerLogo.forEach(function(logo) {
-            logo.style.fill = '#eeeeee';
-        });
-        // stop scroll
-        // document.body.classList.toggle('no-scroll');
-        scrollController.disabledScroll();
-
-        headerNavListItems.forEach(function (item) {
-            item.addEventListener('click', () => {
-                headerContainer.classList.remove('header__container-mobile');
-                headerSubmit.style.display = 'block';
-                headerSlogan.style.display = 'block';
-                headerNav.style.display = 'none';
-        
-                navIconBtn.style.display = 'flex';
-                // headerLanguage.style.display = 'none';
-                headerNavClose.style.display = 'none';
-        
-                headerNavList.classList.remove('black-bg');
-                headerLogo.forEach(function(logo) {
-                    logo.style.fill = '#151515';
-                });
-
-                // if (item.classList.contains('nav__link4') || item.classList.contains('nav__link5')) {
-                //     productsText.style.top = '0vh';
-
-                for (let i = 0; i < productsTextBlock.length; i++){
-                    productsTextSecondBlock[i].classList.remove('products__text-second_block-open');
-
-                    productsImg[i].classList.remove(`img-right${i}`);
-
-                    productsBtn[i].classList.remove(`btn-block_right${i}`);
-
-                    productsBgRigh[i].classList.remove(`bg-right${i}`);
-
-                }
-                // }
-
-                // start scroll
-                // document.body.classList.remove('no-scroll');
-                scrollController.enabledScroll();
-            });
-        });
-    });
-
-    headerNavClose.addEventListener('click', () => {
-        headerContainer.classList.remove('header__container-mobile');
-        headerSubmit.style.display = 'block';
-        headerSlogan.style.display = 'block';
-        headerNav.style.display = 'none';
-
-        navIconBtn.style.display = 'flex';
-        // headerLanguage.style.display = 'none';
-        headerNavClose.style.display = 'none';
-
-        headerNavList.classList.remove('black-bg');
-        headerLogo.forEach(function(logo) {
-            logo.style.fill = '#151515';
-        });
-
-
-        for (let i = 0; i < productsTextBlock.length; i++){
-            productsTextSecondBlock[i].classList.remove('products__text-second_block-open');
-
-            productsImg[i].classList.remove(`img-right${i}`);
-
-            productsBtn[i].classList.remove(`btn-block_right${i}`);
-
-            productsBgRigh[i].classList.remove(`bg-right${i}`);
-
-        }
-        // start scroll
-        // document.body.classList.toggle('no-scroll');
-        scrollController.enabledScroll();
-    });
-    
-    
 
     // section contacts 
     // inputmask and validate
+
     const phone = document.getElementById('phone');
     const imPhone = new Inputmask('+3(999)999-99-99');
 
     imPhone.mask(phone);
+
 
     const validator = new JustValidate('.contacts__form', {
         errorLabelCssClass: 'contacts__input-error',
@@ -461,100 +351,117 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-    // button scroll up
-    const offset = 100;
-    const scrollUp = document.querySelector('.scroll-up');
-    const scrollUpSvgPath = document.querySelector('.scroll-up__svg-path');
-    const pathLength = scrollUpSvgPath.getTotalLength();
+    // menu navigation
 
-    scrollUpSvgPath.style.strokeDasharray = `${pathLength} ${pathLength}`;
-    scrollUpSvgPath.style.transition = 'stroke-dashoffset 20ms';
+    const headerNavBtn = document.querySelector('.header__nav-btn');
+    const navIconBtn = document.querySelector('.nav-icon-btn');
+    const headerNavWrap = document.querySelector('.header__nav');
+    const headerLanguage = document.querySelector('.header__language');
+    const headerNavClose = document.querySelector('.header__nav-close');
+    const headerContainer = document.querySelector('.header__container');
 
-    const getTop = () => window.pageYOffset || document.documentElement.scrollTop;
+    const headerNavList = document.querySelector('.nav__list');
+    const headerNavListItems = document.querySelectorAll('.nav__list > li > a');
 
-    // updateDashoffset
-    const updateDashoffset = () => {
-        const height = document.documentElement.scrollHeight - window.innerHeight;
-        const dashoffset = pathLength - (getTop() * pathLength / height);
+    const headerNavSlogan = document.querySelector('.header__nav-slogan');
+    const headerNavSubmit = document.querySelector('.header__nav__submit');
 
-        scrollUpSvgPath.style.strokeDashoffset = dashoffset;
+    const productsText = document.querySelector('.products__text-animation');
 
-    };
+    const productsTextBlock = document.querySelectorAll('.products__text-block');
+    const productsTextSecondBlock = document.querySelectorAll('.products__text-second_block');
+    const productsImg = document.querySelectorAll('.products__img');
+    const productsBtn = document.querySelectorAll('.products__animation-btn-block');
+    const productsBgRigh = document.querySelectorAll('.products__description-bg-right');
 
-    // onScroll
-    window.addEventListener('scroll', () => {
-        updateDashoffset();
 
-        if (getTop() > offset) {
-            scrollUp.classList.add('scroll-up--active');
-        } else {
-            scrollUp.classList.remove('scroll-up--active');
-        }
-    });
+    headerBtn.addEventListener('click', () => {
+        headerContainer.classList.add('header__container-mobile');
+        
+        headerNavSubmit.style.display = 'none';
+        headerNavSlogan.style.display = 'none';
+        headerNav.style.display = 'block';
 
-    // click
-    scrollUp.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
+        navIconBtn.style.display = 'none';
+        headerLanguage.style.display = 'block';
+        headerNavClose.style.display = 'block';
+
+        headerNavList.classList.add('black-bg');
+        headerLogo.forEach(function(logo) {
+            logo.style.fill = '#eeeeee';
+        });
+        // stop scroll
+        // document.body.classList.toggle('no-scroll');
+        scrollController.disabledScroll();
+
+        headerNavListItems.forEach(function (item) {
+            item.addEventListener('click', () => {
+                headerContainer.classList.remove('header__container-mobile');
+                headerNavSubmit.style.display = 'block';
+                headerNavSlogan.style.display = 'block';
+                headerNav.style.display = 'none';
+        
+                navIconBtn.style.display = 'flex';
+                // headerLanguage.style.display = 'none';
+                headerNavClose.style.display = 'none';
+        
+                headerNavList.classList.remove('black-bg');
+                headerLogo.forEach(function(logo) {
+                    logo.style.fill = '#151515';
+                });
+
+                // if (item.classList.contains('nav__link4') || item.classList.contains('nav__link5')) {
+                //     productsText.style.top = '0vh';
+
+                for (let i = 0; i < productsTextBlock.length; i++){
+                    productsTextSecondBlock[i].classList.remove('products__text-second_block-open');
+
+                    productsImg[i].classList.remove(`img-right${i}`);
+
+                    productsBtn[i].classList.remove(`btn-block_right${i}`);
+
+                    productsBgRigh[i].classList.remove(`bg-right${i}`);
+
+                    }
+                // }
+
+                // start scroll
+                // document.body.classList.remove('no-scroll');
+                scrollController.enabledScroll();
+            });
         });
     });
 
+    headerNavClose.addEventListener('click', () => {
+        headerContainer.classList.remove('header__container-mobile');
+        headerNavSubmit.style.display = 'block';
+        headerNavSlogan.style.display = 'block';
+        headerNav.style.display = 'none';
+
+        navIconBtn.style.display = 'flex';
+        // headerLanguage.style.display = 'none';
+        headerNavClose.style.display = 'none';
+
+        headerNavList.classList.remove('black-bg');
+        headerLogo.forEach(function(logo) {
+            logo.style.fill = '#151515';
+        });
 
 
-    // smooth scroll a href='#'
-    // const ahrefs = document.querySelectorAll('a[href*="#"]');
+        for (let i = 0; i < productsTextBlock.length; i++){
+            productsTextSecondBlock[i].classList.remove('products__text-second_block-open');
 
-    // for (let ahref of ahrefs) {
-    //     ahref.addEventListener('click', function (e) {
+            productsImg[i].classList.remove(`img-right${i}`);
 
-    //         if (!headerContainer.classList.contains('header__container-mobile')) {
-    //             e.preventDefault();
-            
-    //             const blockId = ahref.getAttribute('href');
-    //             document.querySelector('' + blockId).scrollIntoView({
-    //                 behavior: 'smooth',
-    //                 block: 'start'
-    //             });
-    
-    //         }
+            productsBtn[i].classList.remove(`btn-block_right${i}`);
 
-    //     });
-    // }
+            productsBgRigh[i].classList.remove(`bg-right${i}`);
 
-    // headerNavListItems.forEach(function (item) {
-    //     item.addEventListener('click', () => {
-        
-    //         for (let i = 0; i < productsTextBlock.length; i++){
-    //             productsTextSecondBlock[i].classList.remove('products__text-second_block-open');
-    
-    //             productsImg[i].classList.remove(`img-right${i}`);
-    
-    //             productsBtn[i].classList.remove(`btn-block_right${i}`);
-    
-    //             productsBgRigh[i].classList.remove(`bg-right${i}`);
-    
-    //         }
-    //     });
-    // });
-
-    // for (let item of headerNavListItems) {
-    //     item.addEventListener('click', function (e) {
-    //         e.preventDefault();
-            
-    //         for (let i = 0; i < productsTextBlock.length; i++){
-    //             productsTextSecondBlock[i].classList.remove('products__text-second_block-open');
-    
-    //             productsImg[i].classList.remove(`img-right${i}`);
-    
-    //             productsBtn[i].classList.remove(`btn-block_right${i}`);
-    
-    //             productsBgRigh[i].classList.remove(`bg-right${i}`);
-    
-    //         }
-    //     });
-    // }
-
+            }
+        // start scroll
+        // document.body.classList.toggle('no-scroll');
+        scrollController.enabledScroll();
+    });
 
 
     // if (headerContainer.classList.contains('header__container-mobile')) {
@@ -604,5 +511,6 @@ document.addEventListener('DOMContentLoaded', function () {
     //     }
     // });
     
+
 
 });

@@ -201,3 +201,6 @@ guysVideoElement.addEventListener('click', ()=>{
         // arrowPause.classList.add('arrow-right');
     }
 });
+
+
+

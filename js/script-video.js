@@ -26,7 +26,6 @@
 
 
 
-
 const guysVideoElement = document.querySelector('.guys__video-block');
 // const screenElement = document.querySelector('.portfolio');
 const portfolio = document.querySelector('.portfolio');
@@ -75,12 +74,13 @@ const videoBlockScroll = function (target) {
     let indexArrowHeight = arrowHeight + windowScrollTop; 
 
 
-    if (windowScrollTop > 10 && windowScrollTop < 1200 && indexWidth * 1.3 <= containerScreen.width - 30) {
+    // if (windowScrollTop > 10 && windowScrollTop < 1200 && indexWidth * 1.3 <= containerScreen.width - 30) {
+    if (windowScrollTop > 10 && windowScrollTop < 1200 && indexWidth * 1.2 <= containerScreen.width - 30) {
         guysVideoElement.classList.add('video-fixed');
         guysVideoElement.classList.remove('video-relative');
         // portfolio.classList.remove('portfolio-top');
 
-        guysVideoElement.style.width = (indexWidth * 1.3) + 'px';
+        guysVideoElement.style.width = (indexWidth * 1.2) + 'px';
         if (indexHeight < windowHeight - 150) {
             guysVideoElement.style.height = indexHeight + 'px';
             // console.log('indexHeight: ', indexHeight);    
@@ -88,9 +88,10 @@ const videoBlockScroll = function (target) {
 
 
         if (windowScrollTop > 10 && windowScrollTop < 200) {
-            guysBorder.style.display = 'block';
+            // guysBorder.style.display = 'block';
+            guysBorder.style.opacity = '1';
         } else if (windowScrollTop >= 200 && windowScrollTop < 1200) {
-            guysBorder.style.display = 'none';
+            guysBorder.style.opacity = '0';
         }
 
         if (guysVideoElement.style.borderRadius.slice(0, 3).replace(/[^\d]/g, '') > 35 && guysVideoElement.style.borderRadius.slice(0, 3).replace(/[^\d]/g, '') <= 300) {
@@ -124,7 +125,8 @@ const videoBlockScroll = function (target) {
         
     }
     
-    else if (indexWidth > containerScreen.width - 200 && coordPortfolio.top > windowHeight / 2) {
+    // else if (indexWidth > containerScreen.width - 200 && coordPortfolio.top > windowHeight / 2) {
+    else if (indexWidth > containerScreen.width - 300 && coordPortfolio.top > windowHeight / 2) {
         // console.log('windowHeight: ', windowHeight);
         guysVideoElement.classList.remove('video-fixed');
         guysVideoElement.classList.add('video-relative');
@@ -232,3 +234,15 @@ guysVideoElement.addEventListener('click', ()=>{
         // arrowPause.classList.add('arrow-right');
     }
 });
+
+
+// звук
+// function show() {
+//     // let videoEl = document.getElementsByTagName('video')[num];
+//     // video.muted = false;
+//     // video.autoplay = true;
+//     video.volume = 0.05;
+
+// }
+
+// show();

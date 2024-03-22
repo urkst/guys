@@ -49,8 +49,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         autoHeight: true,
 
-        parallax: true,
-
         autoplay: {
             delay: 3500,
         },
@@ -104,9 +102,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const links = document.querySelectorAll('.portfolio__link');
     const portfolioNames = document.querySelectorAll('.portfolio__description-name');
-    // const portfolioDescriptionBtns = document.querySelectorAll('.portfolio__description-btn-wrapper');
-
-    // console.log('portfolioDescriptionBtns: ', portfolioDescriptionBtns);
 
     const portfolioBtns = document.querySelectorAll('.portfolio__slider-btn');
 
@@ -134,51 +129,48 @@ document.addEventListener('DOMContentLoaded', function () {
     let navigationFlagPrev = false;
     let navigationFlagNext = false;
 
-    // const settingDescriptionWidth = function () {
+    const settingDescriptionWidth = function () {
 
-    //     for (let i = 0; i < portfolioDescriptionWrappers.length; i++) {
+        for (let i = 0; i < portfolioDescriptionWrappers.length; i++) {
 
-    //         const coordPortfolioSlider = portfolioSlider.getBoundingClientRect();
-    //         const coordSwiperSlide = swiperSlides[i].getBoundingClientRect();
-    //         let coordPortfolioName = portfolioNames[i].getBoundingClientRect();
+            const coordPortfolioSlider = portfolioSlider.getBoundingClientRect();
+            const coordSwiperSlide = swiperSlides[i].getBoundingClientRect();
+            let coordPortfolioName = portfolioNames[i].getBoundingClientRect();
         
-    //         const slideMarginRight = window.getComputedStyle(swiperSlides[i], null).getPropertyValue("margin-right");
+            const slideMarginRight = window.getComputedStyle(swiperSlides[i], null).getPropertyValue("margin-right");
     
-    //         if (swiperSlides[i].classList.contains('swiper-slide-active') && coordPortfolioName.left < windowWidth / 3) {
+            if (swiperSlides[i].classList.contains('swiper-slide-active') && coordPortfolioName.left < windowWidth / 3) {
 
-    //             descriptionWidth = coordSwiperSlide.width;
+                descriptionWidth = coordSwiperSlide.width;
 
-    //             portfolioDescriptionWrappers[i].style.maxWidth = descriptionWidth + 'px';    
-    //         }
+                portfolioDescriptionWrappers[i].style.maxWidth = descriptionWidth + 'px';    
+            }
             
-    //         else if (swiperSlides[i].classList.contains('swiper-slide-next') && coordPortfolioName.left > windowWidth / 3) {
+            else if (swiperSlides[i].classList.contains('swiper-slide-next') && coordPortfolioName.left > windowWidth / 3) {
         
-    //             descriptionWidth = coordPortfolioSlider.width - coordSwiperSlide.width - parseInt(slideMarginRight);
+                descriptionWidth = coordPortfolioSlider.width - coordSwiperSlide.width - parseInt(slideMarginRight);
                 
-    //             portfolioDescriptionWrappers[i].style.maxWidth = descriptionWidth + 'px';    
-    //         }
+                portfolioDescriptionWrappers[i].style.maxWidth = descriptionWidth + 'px';    
+            }
             
-    //         else if (swiperSlides[i].classList.contains('swiper-slide-prev') && coordPortfolioName.left > windowWidth / 3) {
+            else if (swiperSlides[i].classList.contains('swiper-slide-prev') && coordPortfolioName.left > windowWidth / 3) {
     
-    //             descriptionWidth = coordPortfolioSlider.width - coordSwiperSlide.width - parseInt(slideMarginRight);
+                descriptionWidth = coordPortfolioSlider.width - coordSwiperSlide.width - parseInt(slideMarginRight);
                 
-    //             portfolioDescriptionWrappers[i].style.maxWidth = descriptionWidth + 'px';    
-    //         }
+                portfolioDescriptionWrappers[i].style.maxWidth = descriptionWidth + 'px';    
+            }
             
-    //         else {
+            else {
         
-    //             descriptionWidth = coordSwiperSlide.width;
+                descriptionWidth = coordSwiperSlide.width;
 
-    //             portfolioDescriptionWrappers[i].style.maxWidth = descriptionWidth + 'px';  
-    //         }
+                portfolioDescriptionWrappers[i].style.maxWidth = descriptionWidth + 'px';  
+            }
             
-    //     }    
-    // }
+        }    
+    }
 
     const descriptionNameActive = function () {
-
-        const portfolioDescriptionBtns = document.querySelectorAll('.portfolio__description-btn-wrapper');
-        // console.log('portfolioDescriptionBtns: ', portfolioDescriptionBtns);
 
         for (let i = 0; i < portfolioNames.length; i++) {
 
@@ -187,14 +179,10 @@ document.addEventListener('DOMContentLoaded', function () {
             if (swiperSlides[i].classList.contains('swiper-slide-active') && navigationFlag && !navigationFlagNext && coordPortfolioName.left < windowWidth / 3) {
                 portfolioNames[i].classList.add('portfolio__description-name-active');
 
-                // portfolioDescriptionBtns[i].setAttribute('swiperParallax', '0%');
-
-                // console.log(i + ' ' + portfolioDescriptionBtns[i].getAttribute('swiperParallax'));
-
-            } else if (swiperSlides[i].classList.contains('swiper-slide-next') && navigationFlagNext && !navigationFlag && coordPortfolioName.left > windowWidth / 3) {
+            } else if ((swiperSlides[i].classList.contains('swiper-slide-next') && navigationFlagNext && !navigationFlag && coordPortfolioName.left > windowWidth / 3)) {
                 portfolioNames[i].classList.add('portfolio__description-name-active');
             
-            } else if (swiperSlides[i].classList.contains('swiper-slide-prev') && navigationFlagPrev && coordPortfolioName.left < windowWidth / 3) {
+            } else if ((swiperSlides[i].classList.contains('swiper-slide-prev') && navigationFlagPrev && coordPortfolioName.left < windowWidth / 3)) {
                 portfolioNames[i].classList.add('portfolio__description-name-active');
 
             } else {
@@ -207,46 +195,18 @@ document.addEventListener('DOMContentLoaded', function () {
         navigationFlagPrev = true;
     }
 
-    // const setDataAtrDescrBtn = function () {
-    //     for (let i = 0; i < swiperSlides.length; i++) {
-
-    
-    //         if (swiperSlides[i].classList.contains('swiper-slide-prev')) {
-    //             portfolioDescriptionBtns[i].setAttribute("data-swiper-parallax", '0');
-
-    //             console.log(i + ' ' +  portfolioDescriptionBtns[i].getAttribute("data-swiper-parallax"));
-
-    
-    //         } else if (!swiperSlides[i].classList.contains('swiper-slide-prev')) {
-
-    //             portfolioDescriptionBtns[i].setAttribute("data-swiper-parallax", '70%');
-
-    //             console.log(i + ' ' +  portfolioDescriptionBtns[i].getAttribute("data-swiper-parallax"));
-
-    //             console.log(swiperSlides[i].classList.contains('swiper-slide-prev'));
-
-    //         }
-    //     }
-    // }
-
     swiperPortfolio.on('slideChange', function () { 
-        // settingDescriptionWidth();
+        settingDescriptionWidth();
         descriptionNameActive();
-        // setDataAtrDescrBtn();
-        
     });
 
-    // swiperPortfolio.on('slideChangeTransitionEnd', function () {
-    //     // settingDescriptionWidth();
-    //     // setDataAtrDescrBtn();
+    swiperPortfolio.on('slideChangeTransitionEnd', function () {
+        settingDescriptionWidth();
+    });
 
-    // });
-
-    // swiperPortfolio.on('slideChangeTransitionStart', function () {
-    //     // settingDescriptionWidth();
-    //     // setDataAtrDescrBtn();
-
-    // });
+    swiperPortfolio.on('slideChangeTransitionStart', function () {
+        settingDescriptionWidth();
+    });
 
     // swiperPortfolio.on('slideNextTransitionEnd', function () {
     //     settingDescriptionWidth();
@@ -414,7 +374,7 @@ document.addEventListener('DOMContentLoaded', function () {
             follower.classList.remove('cursor_active');
         });
     }
-
+    
 
     portfolio.addEventListener('mouseout', () => {
         // cursor.style.display = 'none';
