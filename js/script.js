@@ -131,6 +131,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const products = document.querySelector('.products');
     const footer = document.querySelector('.footer');
 
+    const footerDecorG = document.querySelector('.footer__decor-item_g');
+    const footerDecorA = document.querySelector('.footer__decor-item_a');
+    const footerDecorY = document.querySelector('.footer__decor-item_y');
+    const footerDecorS = document.querySelector('.footer__decor-item_s');
+
     const height = Math.max( document.body.scrollHeight, document.body.offsetHeight, 
         document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight);
     // console.log(height);
@@ -235,14 +240,37 @@ document.addEventListener('DOMContentLoaded', function () {
     } 
 
 
+    // animat footer
+
+    // const paths = document.querySelectorAll('.footer__decor-item path');
+
+    // for (let i = 0; i < paths.length; i++) {
+    //     console.log(`Length ${i + 1} is ${Math.ceil(paths[i].getTotalLength())}`);
+    // }
+
+    const footerDecorAnim = function () {
+
+        let coordFooterTop = document.querySelector('.footer').getBoundingClientRect().top;
+
+        if (coordFooterTop <= 10) {
+            footerDecorG.classList.add('footer-anim');
+            footerDecorA.classList.add('footer-anim');
+            footerDecorY.classList.add('footer-anim');
+            footerDecorS.classList.add('footer-anim');
+        }
+
+    }
+
     // run function scrolling the page
     window.addEventListener('scroll', function() {
         menuScreen(navbar);
         menuColor(portfolio);
+        footerDecorAnim();
     });
 
     menuScreen(navbar);
     menuColor(portfolio);
+    footerDecorAnim();
 
 
     // menu navigation
@@ -502,6 +530,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+    
     // smooth scroll a href='#'
     // const ahrefs = document.querySelectorAll('a[href*="#"]');
 

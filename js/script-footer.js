@@ -9,8 +9,6 @@ let flagFooterTop = true;
 // let coordFooter = footer.getBoundingClientRect();
 // console.log('coordFooter: ', coordFooter.top);
 
-
-
 let indexCoordFooter = 0;
 
 
@@ -61,12 +59,10 @@ function scrollFooter() {
 
 document.addEventListener('scroll', function () {
 
-
     // let coordFooterDecor = footerDecor.getBoundingClientRect();
     
     // scrollFooter();
 });
-
 
 
 // gsap.registerPlugin(ScrollTrigger);
