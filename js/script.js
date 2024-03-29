@@ -251,8 +251,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const footerDecorAnim = function () {
 
         let coordFooterTop = document.querySelector('.footer').getBoundingClientRect().top;
+        // console.log('coordFooterTop: ', coordFooterTop);
 
-        if (coordFooterTop <= 10) {
+        if (coordFooterTop <= 200) {
             footerDecorG.classList.add('footer-anim');
             footerDecorA.classList.add('footer-anim');
             footerDecorY.classList.add('footer-anim');

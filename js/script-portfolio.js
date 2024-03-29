@@ -134,6 +134,15 @@ document.addEventListener('DOMContentLoaded', function () {
     let navigationFlagPrev = false;
     let navigationFlagNext = false;
 
+    let countActiv = 0;
+    let countNext = 0;
+    let countPrev = 0;
+
+    let checker = false;
+
+    // document.querySelector('.portfolio__slider-btn-prev').onclick = () => checker = true;
+    // document.querySelector('.portfolio__slider-btn-next').onclick = () => checker = false;
+
     // const settingDescriptionWidth = function () {
 
     //     for (let i = 0; i < portfolioDescriptionWrappers.length; i++) {
@@ -177,19 +186,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const descriptionNameActive = function () {
 
-        const portfolioDescriptionBtns = document.querySelectorAll('.portfolio__description-btn-wrapper');
-        // console.log('portfolioDescriptionBtns: ', portfolioDescriptionBtns);
-
         for (let i = 0; i < portfolioNames.length; i++) {
 
             let coordPortfolioName = portfolioNames[i].getBoundingClientRect();
 
             if (swiperSlides[i].classList.contains('swiper-slide-active') && navigationFlag && !navigationFlagNext && coordPortfolioName.left < windowWidth / 3) {
                 portfolioNames[i].classList.add('portfolio__description-name-active');
-
-                // portfolioDescriptionBtns[i].setAttribute('swiperParallax', '0%');
-
-                // console.log(i + ' ' + portfolioDescriptionBtns[i].getAttribute('swiperParallax'));
 
             } else if (swiperSlides[i].classList.contains('swiper-slide-next') && navigationFlagNext && !navigationFlag && coordPortfolioName.left > windowWidth / 3) {
                 portfolioNames[i].classList.add('portfolio__description-name-active');
@@ -199,12 +201,210 @@ document.addEventListener('DOMContentLoaded', function () {
 
             } else {
                 portfolioNames[i].classList.remove('portfolio__description-name-active');
+
             }
     
         }
         navigationFlag = false;
         navigationFlagNext = true;
         navigationFlagPrev = true;
+
+    }
+
+
+    // const parallaxDescrBtn = function () {
+
+    //     const portfolioDescriptionBtns = document.querySelectorAll('.portfolio__description-btn-wrapper');
+    //     // console.log('portfolioDescriptionBtns: ', portfolioDescriptionBtns.length);
+
+    //     for (let i = 0; i < swiperSlides.length; i++) {
+
+    //         if (swiperSlides[i].classList.contains('swiper-slide-active')) {
+
+    //             portfolioDescriptionBtns[i].setAttribute('data-swiper-parallax', '0%');
+                
+    //             console.log(i + ' active ' + portfolioDescriptionBtns[i].getAttribute('data-swiper-parallax'));
+
+    //             // console.log(i + ' active-index ' + swiperSlides[i].getAttribute('data-swiper-slide-index'));
+
+    //             countActiv++;
+    //             console.log('countActiv: ', countActiv);
+
+    //             if (countActiv === 5) {
+    //                 portfolioDescriptionBtns[i].setAttribute('data-swiper-parallax', '70%');
+
+    //                 countActiv = 0;
+
+    //             }
+
+    //         }
+            
+    //         else if (swiperSlides[i].classList.contains('swiper-slide-next')) {
+
+    //             countNext++;
+    //             console.log('countNext: ', countNext);
+
+    //             portfolioDescriptionBtns[i].setAttribute('data-swiper-parallax', '0%');
+                
+    //             console.log(i + ' next ' + portfolioDescriptionBtns[i].getAttribute('data-swiper-parallax'));
+
+    //             // console.log(i + ' next-index ' + swiperSlides[i].getAttribute('data-swiper-slide-index'));
+
+    //             if (countNext === 5) {
+    //                 portfolioDescriptionBtns[i].setAttribute('data-swiper-parallax', '70%');
+
+    //                 countNext = 0;
+
+    //             }
+
+    //             // if (Number(swiperSlides[i].getAttribute('data-swiper-slide-index')) === 4) {
+    //             //     portfolioDescriptionBtns[i].setAttribute('data-swiper-parallax', '70%');
+                
+    //             //     console.log(i + ' next ' + portfolioDescriptionBtns[i].getAttribute('data-swiper-parallax'));
+    //             // }
+    //             // else if (Number(swiperSlides[i].getAttribute('data-swiper-slide-index')) === 0) {
+    //             //     portfolioDescriptionBtns[i].setAttribute('data-swiper-parallax', '0%');
+                
+    //             //     console.log(i + ' next ' + portfolioDescriptionBtns[i].getAttribute('data-swiper-parallax'));
+    //             // }
+    //         }
+            
+    //         else if (swiperSlides[i].classList.contains('swiper-slide-prev')) {
+
+    //             countPrev++;
+    //             console.log('countPrev: ', countPrev);
+
+    //             portfolioDescriptionBtns[i].setAttribute('data-swiper-parallax', '0%');
+                
+    //             console.log(i + ' prev ' + portfolioDescriptionBtns[i].getAttribute('data-swiper-parallax'));
+
+    //             // console.log(i + ' prev-index ' + swiperSlides[i].getAttribute('data-swiper-slide-index'));
+
+    //             // if (Number(swiperSlides[i].getAttribute('data-swiper-slide-index')) === 0) {
+    //             //     portfolioDescriptionBtns[i].setAttribute('data-swiper-parallax', '70%');
+                
+    //             //     console.log(i + ' prev ' + portfolioDescriptionBtns[i].getAttribute('data-swiper-parallax'));
+    //             // }
+
+    //             if (countPrev === 5) {
+    //                 portfolioDescriptionBtns[i].setAttribute('data-swiper-parallax', '70%');
+
+    //                 countPrev = 0;
+
+    //             }
+
+    //         }
+                
+    //         else {
+
+    //             portfolioDescriptionBtns[i].setAttribute('data-swiper-parallax', '70%');
+
+    //             console.log(i + ' else ' + portfolioDescriptionBtns[i].getAttribute('data-swiper-parallax'));
+
+    //             // console.log(i + ' else-index ' + swiperSlides[i].getAttribute('data-swiper-slide-index'));
+
+
+    //         }
+
+    //     }
+
+    // }
+
+    const parallaxDescrBtn = function () {
+
+        const portfolioDescriptionBtns = document.querySelectorAll('.portfolio__description-btn-wrapper');
+        // console.log('portfolioDescriptionBtns: ', portfolioDescriptionBtns.length);
+
+        document.querySelector('.portfolio__slider-btn-prev').onclick = () => checker = true;
+        document.querySelector('.portfolio__slider-btn-next').onclick = () => checker = false;    
+
+        // console.log(checker);
+
+        for (let i = 0; i < swiperSlides.length; i++) {
+
+            let coordPortfolioDescriptionBtn = portfolioDescriptionBtns[i].getBoundingClientRect().left;
+
+            // console.log(i + ' ' + coordPortfolioDescriptionBtn);
+
+            if (coordPortfolioDescriptionBtn > windowWidth && checker === false) {
+
+                portfolioDescriptionBtns[i].setAttribute('data-swiper-parallax', '70%');
+                
+                // console.log(i + ' active ' + portfolioDescriptionBtns[i].getAttribute('data-swiper-parallax'));
+
+                // console.log(i + ' active-index ' + swiperSlides[i].getAttribute('data-swiper-slide-index'));
+
+                // countActiv++;
+                // console.log('countActiv: ', countActiv);
+
+                // if (countActiv === 5) {
+                //     portfolioDescriptionBtns[i].setAttribute('data-swiper-parallax', '70%');
+
+                //     countActiv = 0;
+
+                // }
+
+            }
+            
+            else if (coordPortfolioDescriptionBtn > 0 &&coordPortfolioDescriptionBtn < windowWidth && checker === true) {
+
+                portfolioDescriptionBtns[i].setAttribute('data-swiper-parallax', '70%');
+                
+                // console.log(i + ' next ' + portfolioDescriptionBtns[i].getAttribute('data-swiper-parallax'));
+
+                // console.log(i + ' next-index ' + swiperSlides[i].getAttribute('data-swiper-slide-index'));
+
+                // if (Number(swiperSlides[i].getAttribute('data-swiper-slide-index')) === 4) {
+                //     portfolioDescriptionBtns[i].setAttribute('data-swiper-parallax', '70%');
+                
+                //     console.log(i + ' next ' + portfolioDescriptionBtns[i].getAttribute('data-swiper-parallax'));
+                // }
+                // else if (Number(swiperSlides[i].getAttribute('data-swiper-slide-index')) === 0) {
+                //     portfolioDescriptionBtns[i].setAttribute('data-swiper-parallax', '0%');
+                
+                //     console.log(i + ' next ' + portfolioDescriptionBtns[i].getAttribute('data-swiper-parallax'));
+                // }
+            }
+            
+            // else if (swiperSlides[i].classList.contains('swiper-slide-prev')) {
+
+            //     // countPrev++;
+            //     // console.log('countPrev: ', countPrev);
+
+            //     portfolioDescriptionBtns[i].setAttribute('data-swiper-parallax', '70%');
+                
+            //     // console.log(i + ' prev ' + portfolioDescriptionBtns[i].getAttribute('data-swiper-parallax'));
+
+            //     // console.log(i + ' prev-index ' + swiperSlides[i].getAttribute('data-swiper-slide-index'));
+
+            //     // if (Number(swiperSlides[i].getAttribute('data-swiper-slide-index')) === 0) {
+            //     //     portfolioDescriptionBtns[i].setAttribute('data-swiper-parallax', '70%');
+                
+            //     //     console.log(i + ' prev ' + portfolioDescriptionBtns[i].getAttribute('data-swiper-parallax'));
+            //     // }
+
+            //     // if (countPrev === 5) {
+            //     //     portfolioDescriptionBtns[i].setAttribute('data-swiper-parallax', '70%');
+
+            //     //     countPrev = 0;
+
+            //     // }
+
+            // }
+                
+            else {
+
+                portfolioDescriptionBtns[i].setAttribute('data-swiper-parallax', '0%');
+
+                // console.log(i + ' else ' + portfolioDescriptionBtns[i].getAttribute('data-swiper-parallax'));
+
+                // console.log(i + ' else-index ' + swiperSlides[i].getAttribute('data-swiper-slide-index'));
+
+
+            }
+
+        }
+
     }
 
     // const setDataAtrDescrBtn = function () {
@@ -232,9 +432,17 @@ document.addEventListener('DOMContentLoaded', function () {
     swiperPortfolio.on('slideChange', function () { 
         // settingDescriptionWidth();
         descriptionNameActive();
+        parallaxDescrBtn();
         // setDataAtrDescrBtn();
         
     });
+
+    // swiperPortfolio.on('slideChange', function () { 
+    //     // settingDescriptionWidth();
+    //     parallaxDescrBtn();
+    //     // setDataAtrDescrBtn();
+        
+    // });
 
     // swiperPortfolio.on('slideChangeTransitionEnd', function () {
     //     // settingDescriptionWidth();
